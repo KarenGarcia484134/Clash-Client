@@ -196,6 +196,8 @@ struct GoldenFlowUtilitiesDestinationAdapter: View {
 #else
                 ProxyShareView(model: proxyShare)
 #endif
+            case .tailscale:
+                TailscaleStatusView(command: command)
             case .runtime:
                 RuntimeDetailView(
                     command: command,

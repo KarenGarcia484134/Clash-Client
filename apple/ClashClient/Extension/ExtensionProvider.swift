@@ -239,6 +239,7 @@ final class ExtensionProvider: NSObject {
     private var providerWakeCount: UInt64 = 0
      
     private var interfaceListener: (any ClashInterfaceUpdateListenerProtocol)?
+    private let tailscaleNetworkChange = TailscaleNetworkChangeDebouncer()
 
     init(
         tunnelProvider: NEPacketTunnelProvider,
@@ -321,6 +322,10 @@ final class ExtensionProvider: NSObject {
              
              
             if identityChanged { ClashSetNetworkIdentity(identity.kind, identity.routers, "", "", "") }
+            // A new network makes the tailscale nodes rebind now rather than
+            // at tsnet's own next check; the debouncer folds a burst of path
+            // reports into one rebind.
+            if identityChanged, snapshot.isReady { tailscaleNetworkChange.schedule() }
             followPhysicalPath(
                 correction, followsPath: ipStack.tunIPv6Mode.followsPath, generation: settingsGeneration
             )
@@ -1658,7 +1663,7 @@ final class ExtensionProvider: NSObject {
                 "schemaVersion": ClashCommandSchemaVersion,
                 "minSchemaVersion": ClashCommandSchemaMinVersion,
                 "coreVersion": ClashVersion(),
-                "capabilities": ["stun-v1", ProviderReloadEnvelope.capability]
+                "capabilities": ["stun-v1", ProviderReloadEnvelope.capability, TailscaleBridge.capability]
             ])
         case "remoteControl":
              
@@ -1671,6 +1676,9 @@ final class ExtensionProvider: NSObject {
             }
             let status = await Task.detached { ClashApplyRemoteControl(settings) }.value
             return Data(status.utf8)
+        case "tailscale":
+            guard currentService != nil else { return appError("Not connected", english: "service not running") }
+            return await TailscaleBridge.respond(to: req)
         case "runtimeDiagnostics":
             guard let service = currentService else { return appError("Not connected", english: "service not running") }
             return runtimeDiagnosticsData(service)

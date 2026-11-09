@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kernel": {
     "repository": "https://github.com/KarenGarcia484134/Clash.git",
-    "revision": "cfefe0a146bc1b141935c1279a419ad4d877ce81"
+    "revision": "2bab8135ee5d1189447045d424c42fce3bcb6822"
   },
   "adapter": {
     "repository": "https://github.com/ProjectClash/Clash-Adapter.git",

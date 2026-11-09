@@ -72,7 +72,7 @@ public enum AppleClientDestination: Hashable, Sendable {
              
              
             case .root, .networkQuality,
-                 .stun, .dnsQuery, .proxyShare, .runtime, .diagnosticsInbox:
+                 .stun, .dnsQuery, .proxyShare, .tailscale, .runtime, .diagnosticsInbox:
                 .utilities
             case .providers: .utilities
             }

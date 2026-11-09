@@ -255,6 +255,7 @@
 "A node in this chain is missing or ambiguous. Edit the chain before updating this source." = "A node in this chain is missing or ambiguous. Edit the chain before updating this source.";
 "A node named “%@” is already in this configuration." = "A node named “%@” is already in this configuration.";
 "A node share link is added to Custom Nodes. HTTP is not encrypted. Credentials in the address travel in the clear." = "A node share link is added to Custom Nodes. HTTP is not encrypted. Credentials in the address travel in the clear.";
+"A node starts the first time traffic goes through it. Tap a node to see its peers." = "A node starts the first time traffic goes through it. Tap a node to see its peers.";
 "A packet tunnel cannot attribute traffic to ordinary app processes. Process matching is disabled." = "A packet tunnel cannot attribute traffic to ordinary app processes. Process matching is disabled.";
 "A partial settings upgrade was detected. Restore the previous profile data, then retry." = "A partial settings upgrade was detected. Restore the previous profile data, then retry.";
 "A passphrase needs the private key it unlocks." = "A passphrase needs the private key it unlocks.";
@@ -312,6 +313,7 @@
 "Accessibility text" = "Accessibility text";
 "Acknowledgements" = "Acknowledgements";
 "Action" = "Action";
+"Actions" = "Actions";
 "Actions for %@" = "Actions for %@";
 "Activate" = "Activate";
 "Activate or sync this profile first." = "Activate or sync this profile first.";
@@ -851,6 +853,7 @@
 "Connect on Any Network" = "Connect on Any Network";
 "Connect on Cellular" = "Connect on Cellular";
 "Connect on Wi-Fi" = "Connect on Wi-Fi";
+"Connect the VPN to see the Tailscale nodes." = "Connect the VPN to see the Tailscale nodes.";
 "Connect to View Proxies" = "Connect to View Proxies";
 "Connect to a usable network and try again." = "Connect to a usable network and try again.";
 "Connect to refresh" = "Connect to refresh";
@@ -999,6 +1002,7 @@
 "Customized" = "Customized";
 "Custom…" = "Custom…";
 "Cut" = "Cut";
+"DERP Relays" = "DERP Relays";
 "DNS" = "DNS";
 "DNS & Local Mapping" = "DNS & Local Mapping";
 "DNS Cache Maintenance" = "DNS Cache Maintenance";
@@ -1119,6 +1123,7 @@
 "Direct is Clash's system fallback and cannot be deleted" = "Direct is Clash's system fallback and cannot be deleted";
 "Direct nameserver" = "Direct nameserver";
 "Direct traffic follows the policy above" = "Direct traffic follows the policy above";
+"Direct · %lld ms" = "Direct · %lld ms";
 "Direct-connection nameserver" = "Direct-connection nameserver";
 "Disable UDP" = "Disable UDP";
 "Discard" = "Discard";
@@ -1562,6 +1567,7 @@
 "Host Key Algorithms" = "Host Key Algorithms";
 "Host Key Pinning" = "Host Key Pinning";
 "Hours" = "Hours";
+"How this device reaches each relay: directly, or through the node's dialer proxy." = "How this device reaches each relay: directly, or through the node's dialer proxy.";
 "Human Test" = "Human Test";
 "Hysteria 2" = "Hysteria 2";
 "Hysteria 2 Demo" = "Hysteria 2 Demo";
@@ -1792,6 +1798,7 @@
 "Loading Proxies" = "Loading Proxies";
 "Loading Sources…" = "Loading sources…";
 "Loading “%@” When It Stopped" = "Loading “%@” When It Stopped";
+"Loading…" = "Loading…";
 "Local" = "Local";
 "Local Inbox" = "Local Inbox";
 "Local Mapping" = "Local Mapping";
@@ -1814,6 +1821,7 @@
 "Location" = "Location";
 "Log" = "Log";
 "Log Export" = "Log Export";
+"Log In" = "Log In";
 "Log Settings" = "Log Settings";
 "Log Settings is set to “%@”, which runs over this." = "Log Settings is set to “%@”, which runs over this.";
 "Log batches dropped" = "Log batches dropped";
@@ -1836,6 +1844,7 @@
 "MRS rule sets can't be browsed line by line." = "MRS rule sets can't be browsed line by line.";
 "MTU Discovery" = "MTU Discovery";
 "Mac UI Review" = "Mac UI Review";
+"MagicDNS" = "MagicDNS";
 "Make New Certificate" = "Make New Certificate";
 "Make New Certificate…" = "Make New Certificate…";
 "Make New Secret" = "Make New Secret";
@@ -2010,6 +2019,7 @@
 "Needs %@" = "Needs %@";
 "Needs Attention" = "Needs Attention";
 "Needs HTTPS Decryption" = "Needs HTTPS Decryption";
+"Needs login" = "Needs login";
 "Nested Policy" = "Nested Policy";
 "Nested policy groups" = "Nested policy groups";
 "Network" = "Network";
@@ -2048,6 +2058,7 @@
 "No Custom Groups" = "No Custom Groups";
 "No Custom Nodes" = "No Custom Nodes";
 "No Custom Rules" = "No Custom Rules";
+"No DERP relay used yet." = "No DERP relay used yet.";
 "No DNS" = "No DNS";
 "No Desktop or Inbound Fields" = "No Desktop or Inbound Fields";
 "No Details" = "No Details";
@@ -2083,6 +2094,7 @@
 "No active rules were returned. Pull to refresh." = "No active rules were returned. Pull to refresh.";
 "No address was returned for this name." = "No address was returned for this name.";
 "No answer" = "No answer";
+"No answer from the VPN extension" = "No answer from the VPN extension";
 "No cached source; activate the profile once first" = "No cached source; activate the profile once first";
 "No categories available" = "No categories available";
 "No changes were published, and the reason was not recognised." = "Nothing was changed, and the reason is unknown.";
@@ -2109,6 +2121,7 @@
 "No nodes were found. Try another link or file, or create a node manually." = "No nodes were found. Try another link or file, or create a node manually.";
 "No nodes yet. Add one, or copy nodes from the node library." = "No nodes yet. Add one, or copy nodes from the node library.";
 "No optional cards. The Connection card always stays on Overview." = "No optional cards. The Connection card always stays on Overview.";
+"No peers yet." = "No peers yet.";
 "No policy groups yet. A group chooses which node traffic goes through." = "No policy groups yet. A group chooses which node traffic goes through.";
 "No policy matched, so the main resolvers answer" = "No policy matched, so the main resolvers answer";
 "No profiles yet" = "No profiles yet";
@@ -2141,6 +2154,7 @@
 "Node Overrides" = "Node Overrides";
 "Node Sets (%@)" = "Node Sets (%@)";
 "Node Sources" = "Node Sources";
+"Node Traffic" = "Node Traffic";
 "Node could not be saved" = "Node could not be saved";
 "Nodes" = "Nodes";
 "Nodes copied from a link don’t update with it. To keep them updated, add the whole link in Proxy Providers." = "Nodes copied from a link don’t update with it. To keep them updated, add the whole link in Proxy Providers.";
@@ -2192,6 +2206,7 @@
 "Not set" = "Not set";
 "Not shown" = "Not shown";
 "Not signed in to iCloud." = "Not signed in to iCloud.";
+"Not started" = "Not started";
 "Not tested" = "Not tested";
 "Not used here" = "Not used here";
 "Not used on iOS" = "Not used on iOS";
@@ -2245,6 +2260,7 @@
 "One address per line." = "One address per line.";
 "One domain, or a wildcard such as +.example.com." = "One domain, or a wildcard such as +.example.com.";
 "One or more rules cannot be matched safely on iOS." = "One or more rules cannot be matched safely on iOS.";
+"Online" = "Online";
 "Online Rule Library" = "Online Rule Library";
 "Only affects this configuration. Does not change Rule Library. Personal rules apply in Standard override mode." = "Only affects this configuration. Does not change Rule Library. Personal rules apply in Standard override mode.";
 "Only checked: nothing was published or reconnected." = "Checked only — nothing changed, and you stayed connected.";
@@ -2351,6 +2367,8 @@
 "Payload exceeded Clash's local nesting-depth cap." = "Payload exceeded Clash's local nesting-depth cap.";
 "Payload exceeded Clash's local two-megabyte size cap." = "Payload exceeded Clash's local two-megabyte size cap.";
 "Peer Pre-shared Key" = "Peer Pre-shared Key";
+"Peer relay · %lld ms" = "Peer relay · %lld ms";
+"Peers" = "Peers";
 "Persistent Keepalive" = "Persistent Keepalive";
 "Personal Hotspot" = "Personal Hotspot";
 "Personal Rules" = "Personal Rules";
@@ -2360,6 +2378,9 @@
 "Physical Test" = "Physical Test";
 "Physical v4 / v6" = "Physical v4 / v6";
 "Pin a domain to an address" = "Pin a domain to an address";
+"Ping" = "Ping";
+"Ping All" = "Ping All";
+"Ping shows whether a peer is reached directly or through a relay, and how long it takes." = "Ping shows whether a peer is reached directly or through a relay, and how long it takes.";
 "Pink" = "Pink";
 "Plain HTTP is not allowed" = "Plain HTTP is not allowed";
 "Platform Routing Fields" = "Platform Routing Fields";
@@ -2568,6 +2589,8 @@
 "Receive Window" = "Receive Window";
 "Recent requests, kept after disconnect" = "Recent requests, kept after disconnect";
 "Recently Used" = "Recently Used";
+"Reconnect" = "Reconnect";
+"Reconnect retries the login now when the node is stuck logged out; the saved login is kept." = "Reconnect retries the login now when the node is stuck logged out; the saved login is kept.";
 "Record Logs" = "Record Logs";
 "Record logs to help troubleshoot problems." = "Record logs to help troubleshoot problems.";
 "Recording" = "Recording";
@@ -2602,6 +2625,7 @@
 "Rejected" = "Rejected";
 "Rejects UDP on port 443 that no rule could carry. Web and API traffic falls back to HTTP/2 through the proxy instead of leaving over DIRECT. Games, FaceTime, voice calls and STUN are untouched." = "Rejects UDP on port 443 that no rule could carry. Web and API traffic falls back to HTTP/2 through the proxy instead of leaving over DIRECT. Games, FaceTime, voice calls and STUN are untouched.";
 "Rejects matched traffic instead of opening an outbound connection." = "Rejects matched traffic instead of opening an outbound connection.";
+"Relay %@ · %lld ms" = "Relay %1$@ · %2$lld ms";
 "Release Memory" = "Release Memory";
 "Releasing Memory…" = "Releasing Memory…";
 "Remaining" = "Remaining";
@@ -2674,7 +2698,10 @@
 "Reset Local Data" = "Reset Local Data";
 "Reset Local Data?" = "Reset Local Data?";
 "Reset Local Data…" = "Reset Local Data…";
+"Reset Login" = "Reset Login";
+"Reset Login…" = "Reset Login…";
 "Reset Saved Credentials" = "Reset Saved Credentials";
+"Reset Tailscale login?" = "Reset Tailscale login?";
 "Reset VPN Profile" = "Reset VPN Profile";
 "Reset VPN Profile?" = "Reset VPN Profile?";
 "Reset this module's settings?" = "Reset this module's settings?";
@@ -3033,6 +3060,7 @@
 "Standard" = "Standard";
 "Start Clash" = "Start Clash";
 "Start From" = "Start From";
+"Start Node" = "Start Node";
 "Start Recording" = "Start Recording";
 "Start Sharing" = "Start Sharing";
 "Start Test" = "Start Test";
@@ -3143,6 +3171,8 @@
 "TUN IPv6: Off" = "Off";
 "TUN IPv6: On" = "On";
 "Tabs" = "Tabs";
+"Tailnet nodes, peers, and relay paths" = "Tailnet nodes, peers, and relay paths";
+"Tailscale" = "Tailscale";
 "Tailscale Demo" = "Tailscale Demo";
 "Taken over by the override script" = "Taken over by the override script";
 "Tap Retry, then allow VPN setup." = "Tap Retry, then allow VPN setup.";
@@ -3325,6 +3355,7 @@
 "The download limit must be zero or a positive number of bytes." = "The download limit must be zero or a positive number of bytes.";
 "The download safety limit is invalid." = "The download safety limit is invalid.";
 "The downloaded text is not valid configuration YAML. Edit the profile or contact the provider." = "The downloaded text is not valid configuration YAML. Edit the profile or contact the provider.";
+"The exit node in the profile could not be set. Check that it is online and offered as an exit node." = "The exit node in the profile could not be set. Check that it is online and offered as an exit node.";
 "The fetch proxy is kept as written. Clash downloads this provider itself and uses the cached copy if a refresh fails." = "The fetch proxy is kept as written. Clash downloads this provider itself and uses the cached copy if a refresh fails.";
 "The file this line needs isn't on this device, so it was skipped." = "The file this line needs isn't on this device, so it was skipped.";
 "The file this line uses couldn't be downloaded, so it was skipped." = "The file this line uses couldn't be downloaded, so it was skipped.";
@@ -3361,6 +3392,7 @@
 "The local profile source is unavailable" = "The local profile source is unavailable";
 "The local source file for this profile is unavailable." = "The local source file for this profile is unavailable.";
 "The log is exported exactly as written, so it can contain your servers and any credential a line mentions. Share it only with someone you would show your configuration to." = "The log is exported exactly as written, so it can contain your servers and any credential a line mentions. Share it only with someone you would show your configuration to.";
+"The login was reset and the profile reloaded." = "The login was reset and the profile reloaded.";
 "The maximum padding cannot be smaller than the minimum." = "The maximum padding cannot be smaller than the minimum.";
 "The module list cannot be read right now. Try again." = "The module list can't be read right now; try again.";
 "The module list could not be read, so nothing was changed." = "The module list can't be read, so nothing was changed.";
@@ -3660,6 +3692,7 @@
 "This profile chooses the route automatically" = "This profile chooses the route automatically";
 "This profile does not declare routing rules or rule providers." = "This profile does not declare routing rules or rule providers.";
 "This profile has changes that have not been saved." = "This profile has changes that have not been saved.";
+"This profile has no Tailscale nodes." = "This profile has no Tailscale nodes.";
 "This profile has no configuration document yet." = "This profile has no configuration document yet.";
 "This profile has no previously applied configuration." = "This profile has no previously applied configuration.";
 "This profile has no proxies that can be linked." = "This profile has no proxies that can be linked.";
@@ -3704,11 +3737,14 @@
 "This security layer needs TLS. Turn TLS on, or remove the layer." = "This security layer needs TLS. Turn TLS on, or remove the layer.";
 "This security layer needs a TCP transport. Change the network, or remove the layer." = "This security layer needs a TCP transport. Change the network, or remove the layer.";
 "This selection has not been saved." = "This selection has not been saved.";
+"This signs the node out and deletes its saved login on this device, then reloads the profile. The node logs in again with its auth key, or shows a new login link." = "This signs the node out and deletes its saved login on this device, then reloads the profile. The node logs in again with its auth key, or shows a new login link.";
 "This source does not request a desktop or inbound server surface." = "This source does not request a desktop or inbound server surface.";
 "This source has changes that have not been saved." = "This source has changes that have not been saved.";
 "This source is used by a proxy chain. Edit or delete the chain first." = "This source is used by a proxy chain. Edit or delete the chain first.";
 "This source version already exists with different contents." = "This source version already exists with different contents.";
 "This start loaded %@ of them · %@" = "This start loaded %@ of them · %@";
+"Through %@" = "Through %@";
+"Through proxy" = "Through proxy";
 "Time" = "Time";
 "Time Synchronization" = "Time Synchronization";
 "Timed out" = "Timed out";
@@ -3810,6 +3846,7 @@
 "Unknown Keys" = "Unknown Keys";
 "Unknown destination" = "Unknown destination";
 "Unprobed" = "Not broken down";
+"Unreadable answer" = "Unreadable answer";
 "Unreadable configuration" = "Unreadable configuration";
 "Unreliable on iOS — the packet tunnel never sets DSCP, so every flow reads as 0: DSCP,0 matches all traffic and any other value never matches." = "Unreliable on iOS: every connection’s DSCP is 0, so DSCP,0 matches all traffic and any other value never matches.";
 "Unsaved edits from last time were restored." = "Unsaved edits from last time were restored.";
@@ -3959,6 +3996,7 @@
 "Wait for the current LAN proxy change to finish." = "Wait for the current LAN proxy change to finish.";
 "Waiting" = "Waiting";
 "Waiting for VPN authorization. Complete the system confirmation in Settings to continue." = "Waiting for VPN authorization. Complete the system confirmation in Settings to continue.";
+"Waiting for approval" = "Waiting for approval";
 "Waiting for the current update to finish…" = "Waiting for the current update to finish…";
 "Waiting for the network" = "Waiting for the network";
 "Waiting for the tunnel to download rule sets…" = "Downloading rule sets…";
@@ -4136,6 +4174,8 @@
 "start: DNS-only mode is selected. Remove the DNS configuration in Tools before starting VPN." = "start: DNS-only mode is selected. Remove the DNS configuration in Tools before starting VPN.";
 "sub-rule name" = "sub-rule name";
 "surrounding whitespace" = "surrounding whitespace";
+"tailscale node is not started" = "tailscale node is not started";
+"tailscale node not found" = "tailscale node not found";
 "tcp" = "tcp";
 "the app-wide runtime preference could not be persisted" = "the app-wide setting couldn’t be saved";
 "the core could not read this rule set" = "this rule set couldn’t be read";

@@ -36,6 +36,7 @@ public enum ClashUtilitiesDestination:
      
     case dnsQuery
     case proxyShare
+    case tailscale
     case runtime
     case providers
     case diagnosticsInbox
@@ -53,6 +54,7 @@ public enum ClashUtilitiesDestination:
         case .stun: "STUN & NAT"
         case .dnsQuery: "DNS Query"
         case .proxyShare: "LAN Proxy Share"
+        case .tailscale: "Tailscale"
         case .runtime: "Core Runtime"
         case .providers: "Providers"
         case .diagnosticsInbox: "Diagnostics Inbox"
@@ -70,6 +72,7 @@ public enum ClashUtilitiesDestination:
         case .stun: .arrowTriangleSwap
         case .dnsQuery: .magnifyingglass
         case .proxyShare: .network
+        case .tailscale: .point3ConnectedTrianglepathDotted
         case .runtime: .cpu
         case .providers: .shippingbox
         case .diagnosticsInbox: .docTextMagnifyingglass
@@ -87,6 +90,7 @@ public enum ClashUtilitiesDestination:
         case .stun: .green
         case .dnsQuery: .teal
         case .proxyShare: .orange
+        case .tailscale: .teal
         case .runtime: .indigo
         case .providers: .orange
         case .diagnosticsInbox: .purple
@@ -122,7 +126,7 @@ public enum ClashUtilitiesCatalog {
         ),
         ClashUtilitiesSectionDescriptor(
             id: .networkTools,
-            destinations: [.networkQuality, .stun, .dnsQuery, .proxyShare]
+            destinations: [.networkQuality, .stun, .dnsQuery, .proxyShare, .tailscale]
         ),
         ClashUtilitiesSectionDescriptor(
             id: .runtimeAndReports,

@@ -147,6 +147,12 @@ public struct ClashUtilitiesSnapshot: Codable, Equatable, Sendable {
                 subtitle: "LAN HTTP and SOCKS proxy",
                 badge: badge
             )
+        case .tailscale:
+            return ClashProductDestinationPresentation(
+                title: .copy(destination.title),
+                subtitle: "Tailnet nodes, peers, and relay paths",
+                badge: liveBadge
+            )
         case .runtime:
             return ClashProductDestinationPresentation(
                 title: .copy(destination.title),

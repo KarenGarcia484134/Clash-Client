@@ -255,6 +255,7 @@
 "A node in this chain is missing or ambiguous. Edit the chain before updating this source." = "链里有节点缺失或不唯一，先编辑链式代理再更新这个来源。";
 "A node named “%@” is already in this configuration." = "这份配置里已有名为「%@」的节点。";
 "A node share link is added to Custom Nodes. HTTP is not encrypted. Credentials in the address travel in the clear." = "节点分享链接会添加到自建节点。HTTP 链接会明文传输。";
+"A node starts the first time traffic goes through it. Tap a node to see its peers." = "节点在首次有流量经过时启动。轻点节点查看它的对端。";
 "A packet tunnel cannot attribute traffic to ordinary app processes. Process matching is disabled." = "隧道无法把流量归属到普通应用进程。进程匹配已停用。";
 "A partial settings upgrade was detected. Restore the previous profile data, then retry." = "检测到设置升级只完成了一半。请先恢复之前的配置数据，再重试。";
 "A passphrase needs the private key it unlocks." = "口令需要配套的私钥。";
@@ -312,6 +313,7 @@
 "Accessibility text" = "辅助功能文本";
 "Acknowledgements" = "Acknowledgements";
 "Action" = "操作";
+"Actions" = "操作";
 "Actions for %@" = "%@ 的操作";
 "Activate" = "激活";
 "Activate or sync this profile first." = "请先激活或同步该配置。";
@@ -851,6 +853,7 @@
 "Connect on Any Network" = "任何网络下都连接";
 "Connect on Cellular" = "用蜂窝网络时连接";
 "Connect on Wi-Fi" = "在 Wi-Fi 下连接";
+"Connect the VPN to see the Tailscale nodes." = "连接 VPN 后即可查看 Tailscale 节点。";
 "Connect to View Proxies" = "连接后查看代理";
 "Connect to a usable network and try again." = "请连接可用网络后重试。";
 "Connect to refresh" = "连接后可刷新";
@@ -999,6 +1002,7 @@
 "Customized" = "已自定义";
 "Custom…" = "自定义…";
 "Cut" = "剪切";
+"DERP Relays" = "DERP 中继";
 "DNS" = "DNS";
 "DNS & Local Mapping" = "DNS 与本地映射";
 "DNS Cache Maintenance" = "DNS 缓存维护";
@@ -1119,6 +1123,7 @@
 "Direct is Clash's system fallback and cannot be deleted" = "Direct 是 Clash 的系统兜底配置，不能删除";
 "Direct nameserver" = "直连 nameserver";
 "Direct traffic follows the policy above" = "直连流量遵循上方策略";
+"Direct · %lld ms" = "直连 · %lld ms";
 "Direct-connection nameserver" = "直连 nameserver";
 "Disable UDP" = "禁用 UDP";
 "Discard" = "放弃";
@@ -1562,6 +1567,7 @@
 "Host Key Algorithms" = "主机密钥算法";
 "Host Key Pinning" = "主机密钥固定";
 "Hours" = "小时";
+"How this device reaches each relay: directly, or through the node's dialer proxy." = "本机连接各中继的方式：直连，或经由节点的 dialer-proxy。";
 "Human Test" = "人工测试";
 "Hysteria 2" = "Hysteria 2";
 "Hysteria 2 Demo" = "Hysteria 2 Demo";
@@ -1792,6 +1798,7 @@
 "Loading Proxies" = "正在加载代理";
 "Loading Sources…" = "正在加载节点来源…";
 "Loading “%@” When It Stopped" = "停止时正在装载“%@”";
+"Loading…" = "正在载入…";
 "Local" = "本地";
 "Local Inbox" = "本地收件箱";
 "Local Mapping" = "本地映射";
@@ -1814,6 +1821,7 @@
 "Location" = "位置";
 "Log" = "日志";
 "Log Export" = "日志导出";
+"Log In" = "登录";
 "Log Settings" = "日志设置";
 "Log Settings is set to “%@”, which runs over this." = "日志设置选了「%@」，暂时盖过这里。";
 "Log batches dropped" = "丢弃的日志批次";
@@ -1836,6 +1844,7 @@
 "MRS rule sets can't be browsed line by line." = "MRS 格式，不提供逐条浏览。";
 "MTU Discovery" = "MTU 探测";
 "Mac UI Review" = "Mac 界面评审";
+"MagicDNS" = "MagicDNS";
 "Make New Certificate" = "生成新证书";
 "Make New Certificate…" = "生成新证书…";
 "Make New Secret" = "生成新密钥";
@@ -2010,6 +2019,7 @@
 "Needs %@" = "还需要%@";
 "Needs Attention" = "需要处理";
 "Needs HTTPS Decryption" = "需要 HTTPS 解密";
+"Needs login" = "需要登录";
 "Nested Policy" = "嵌套策略";
 "Nested policy groups" = "嵌套策略组";
 "Network" = "网络";
@@ -2048,6 +2058,7 @@
 "No Custom Groups" = "没有自定义分组";
 "No Custom Nodes" = "没有自建节点";
 "No Custom Rules" = "没有自定义规则";
+"No DERP relay used yet." = "尚未使用 DERP 中继。";
 "No DNS" = "无 DNS";
 "No Desktop or Inbound Fields" = "没有桌面或入站字段";
 "No Details" = "没有详情";
@@ -2083,6 +2094,7 @@
 "No active rules were returned. Pull to refresh." = "未返回运行中的规则。下拉刷新。";
 "No address was returned for this name." = "这个域名没有返回地址。";
 "No answer" = "无应答";
+"No answer from the VPN extension" = "VPN 扩展没有响应";
 "No cached source; activate the profile once first" = "没有缓存的源文本；请先激活一次该配置";
 "No categories available" = "无可用分类";
 "No changes were published, and the reason was not recognised." = "没有做任何更改，原因不明";
@@ -2109,6 +2121,7 @@
 "No nodes were found. Try another link or file, or create a node manually." = "未找到节点。请换一个链接或文件，也可以手动创建。";
 "No nodes yet. Add one, or copy nodes from the node library." = "还没有节点。可以新建一个，或从节点库复制。";
 "No optional cards. The Connection card always stays on Overview." = "没有可选卡片。连接卡片始终固定在概览上。";
+"No peers yet." = "暂无对端。";
 "No policy groups yet. A group chooses which node traffic goes through." = "还没有代理组。代理组决定流量走哪个节点。";
 "No policy matched, so the main resolvers answer" = "没有策略命中，由 main 解析器回答";
 "No profiles yet" = "还没有配置";
@@ -2141,6 +2154,7 @@
 "Node Overrides" = "节点覆写";
 "Node Sets (%@)" = "节点集合（%@）";
 "Node Sources" = "节点来源";
+"Node Traffic" = "节点自身流量";
 "Node could not be saved" = "节点未能保存";
 "Nodes" = "节点";
 "Nodes copied from a link don’t update with it. To keep them updated, add the whole link in Proxy Providers." = "从链接复制的节点不会随链接更新；要自动更新，到「代理集合」里加整个链接。";
@@ -2192,6 +2206,7 @@
 "Not set" = "未设置";
 "Not shown" = "未显示";
 "Not signed in to iCloud." = "未登录 iCloud。";
+"Not started" = "未启动";
 "Not tested" = "未测试";
 "Not used here" = "这里不会用到";
 "Not used on iOS" = "iOS 上不使用";
@@ -2245,6 +2260,7 @@
 "One address per line." = "每行一个地址。";
 "One domain, or a wildcard such as +.example.com." = "一个域名，或形如 +.example.com 的通配符。";
 "One or more rules cannot be matched safely on iOS." = "有规则无法在 iOS 上安全匹配。";
+"Online" = "在线";
 "Online Rule Library" = "在线规则库";
 "Only affects this configuration. Does not change Rule Library. Personal rules apply in Standard override mode." = "仅影响本配置，不修改规则库。个人规则在标准覆写模式下生效。";
 "Only checked: nothing was published or reconnected." = "只做了检查：配置没有改动，连接没有中断";
@@ -2351,6 +2367,8 @@
 "Payload exceeded Clash's local nesting-depth cap." = "载荷嵌套深度超过 Clash 的本地上限。";
 "Payload exceeded Clash's local two-megabyte size cap." = "载荷超过 Clash 本地两兆字节上限。";
 "Peer Pre-shared Key" = "对端预共享密钥";
+"Peer relay · %lld ms" = "对端中继 · %lld ms";
+"Peers" = "对端";
 "Persistent Keepalive" = "持久保活 (persistent-keepalive)";
 "Personal Hotspot" = "个人热点";
 "Personal Rules" = "个人规则";
@@ -2360,6 +2378,9 @@
 "Physical Test" = "真机测试";
 "Physical v4 / v6" = "物理 v4 / v6";
 "Pin a domain to an address" = "将域名固定到指定地址";
+"Ping" = "Ping";
+"Ping All" = "全部 Ping";
+"Ping shows whether a peer is reached directly or through a relay, and how long it takes." = "Ping 会显示对端是直连还是经由中继，以及延迟。";
 "Pink" = "粉色";
 "Plain HTTP is not allowed" = "不允许明文 HTTP";
 "Platform Routing Fields" = "平台路由字段";
@@ -2568,6 +2589,8 @@
 "Receive Window" = "接收窗口 (recv-window)";
 "Recent requests, kept after disconnect" = "最近的请求，断开后仍保留";
 "Recently Used" = "最近使用";
+"Reconnect" = "重新连接";
+"Reconnect retries the login now when the node is stuck logged out; the saved login is kept." = "节点卡在未登录状态时，重新连接会立即重试登录；已保存的登录信息会保留。";
 "Record Logs" = "记录日志";
 "Record logs to help troubleshoot problems." = "开启后记录日志，用于排查问题。";
 "Recording" = "正在记录";
@@ -2602,6 +2625,7 @@
 "Rejected" = "已拒绝";
 "Rejects UDP on port 443 that no rule could carry. Web and API traffic falls back to HTTP/2 through the proxy instead of leaving over DIRECT. Games, FaceTime, voice calls and STUN are untouched." = "拒绝没有任何规则肯承载的 443 端口 UDP。网页与 API 流量回落到 HTTP/2 经代理走，而不是带着你自己的地址经 DIRECT 出门。游戏、FaceTime、语音通话与 STUN 不受影响。";
 "Rejects matched traffic instead of opening an outbound connection." = "拒绝命中的流量，而不是发起出站连接。";
+"Relay %@ · %lld ms" = "中继 %1$@ · %2$lld ms";
 "Release Memory" = "释放内存";
 "Releasing Memory…" = "正在释放内存…";
 "Remaining" = "剩余流量";
@@ -2674,7 +2698,10 @@
 "Reset Local Data" = "重置本地数据";
 "Reset Local Data?" = "要重置本地数据吗？";
 "Reset Local Data…" = "重置本地数据…";
+"Reset Login" = "重置登录";
+"Reset Login…" = "重置登录…";
 "Reset Saved Credentials" = "重置已保存的凭据";
+"Reset Tailscale login?" = "重置 Tailscale 登录？";
 "Reset VPN Profile" = "重置 VPN 配置";
 "Reset VPN Profile?" = "重置 VPN 配置？";
 "Reset this module's settings?" = "恢复这个模块的参数？";
@@ -3033,6 +3060,7 @@
 "Standard" = "标准";
 "Start Clash" = "启动 Clash";
 "Start From" = "从哪开始";
+"Start Node" = "启动节点";
 "Start Recording" = "开始记录";
 "Start Sharing" = "开始共享";
 "Start Test" = "开始测试";
@@ -3143,6 +3171,8 @@
 "TUN IPv6: Off" = "关";
 "TUN IPv6: On" = "开启";
 "Tabs" = "标签页";
+"Tailnet nodes, peers, and relay paths" = "Tailnet 节点、对端与中继路径";
+"Tailscale" = "Tailscale";
 "Tailscale Demo" = "Tailscale Demo";
 "Taken over by the override script" = "由覆写脚本接管";
 "Tap Retry, then allow VPN setup." = "点重试，并允许添加 VPN 配置";
@@ -3325,6 +3355,7 @@
 "The download limit must be zero or a positive number of bytes." = "下载上限须为零或正数字节。";
 "The download safety limit is invalid." = "下载安全上限无效。";
 "The downloaded text is not valid configuration YAML. Edit the profile or contact the provider." = "下载的内容不是有效的配置 YAML。请编辑配置或联系提供方。";
+"The exit node in the profile could not be set. Check that it is online and offered as an exit node." = "无法设置配置中的出口节点。请确认它在线，并已开放为出口节点。";
 "The fetch proxy is kept as written. Clash downloads this provider itself and uses the cached copy if a refresh fails." = "抓取代理按原样保留。Clash 自己下载该资源；刷新失败时使用缓存副本。";
 "The file this line needs isn't on this device, so it was skipped." = "这一行要的文件不在这台设备上，已跳过。";
 "The file this line uses couldn't be downloaded, so it was skipped." = "这一行用的文件下载不了，已跳过。";
@@ -3361,6 +3392,7 @@
 "The local profile source is unavailable" = "本地配置源不可用";
 "The local source file for this profile is unavailable." = "本配置的本地源文件不可用。";
 "The log is exported exactly as written, so it can contain your servers and any credential a line mentions. Share it only with someone you would show your configuration to." = "日志按原样导出，因此其中可能包含你的服务器，以及某一行里出现的任何凭据。只发给你愿意给他看配置文件的人。";
+"The login was reset and the profile reloaded." = "登录已重置，配置已重新载入。";
 "The maximum padding cannot be smaller than the minimum." = "填充上限不能小于下限。";
 "The module list cannot be read right now. Try again." = "暂时无法读取模块列表，请再试一次。";
 "The module list could not be read, so nothing was changed." = "读不到模块列表，没有改动。";
@@ -3660,6 +3692,7 @@
 "This profile chooses the route automatically" = "本配置自动选择线路";
 "This profile does not declare routing rules or rule providers." = "本配置没有写规则或规则集合。";
 "This profile has changes that have not been saved." = "当前配置有尚未保存的更改。";
+"This profile has no Tailscale nodes." = "此配置没有 Tailscale 节点。";
 "This profile has no configuration document yet." = "这份配置还没有配置文档。";
 "This profile has no previously applied configuration." = "此配置尚无已应用的版本。";
 "This profile has no proxies that can be linked." = "本配置没有可串联的代理。";
@@ -3704,11 +3737,14 @@
 "This security layer needs TLS. Turn TLS on, or remove the layer." = "这个安全层需要 TLS。打开 TLS，或去掉这一层。";
 "This security layer needs a TCP transport. Change the network, or remove the layer." = "该安全层需要 TCP 传输。换一个 network，或者移除该安全层。";
 "This selection has not been saved." = "此选择尚未保存。";
+"This signs the node out and deletes its saved login on this device, then reloads the profile. The node logs in again with its auth key, or shows a new login link." = "这会让节点退出登录，并删除它在本设备上保存的登录信息，然后重新载入配置。节点会用它的 auth key 重新登录，或显示新的登录链接。";
 "This source does not request a desktop or inbound server surface." = "该源未请求桌面或入站服务面。";
 "This source has changes that have not been saved." = "该源码有未保存的更改。";
 "This source is used by a proxy chain. Edit or delete the chain first." = "这个来源正被链式代理使用，先编辑或删除那条链。";
 "This source version already exists with different contents." = "这个来源版本已存在，但内容不同。";
 "This start loaded %@ of them · %@" = "本次启动装载了其中 %@ 个 · %@";
+"Through %@" = "经由 %@";
+"Through proxy" = "经由代理";
 "Time" = "时间";
 "Time Synchronization" = "时间同步";
 "Timed out" = "超时";
@@ -3810,6 +3846,7 @@
 "Unknown Keys" = "未知键";
 "Unknown destination" = "未知目标";
 "Unprobed" = "未细分";
+"Unreadable answer" = "无法读取的响应";
 "Unreadable configuration" = "配置不可读";
 "Unreliable on iOS — the packet tunnel never sets DSCP, so every flow reads as 0: DSCP,0 matches all traffic and any other value never matches." = "在 iOS 上不可靠：所有流量的 DSCP 都是 0，所以 DSCP,0 匹配全部流量，其他取值永远匹配不到";
 "Unsaved edits from last time were restored." = "已恢复上次未保存的编辑。";
@@ -3959,6 +3996,7 @@
 "Wait for the current LAN proxy change to finish." = "请等待当前局域网代理变更完成。";
 "Waiting" = "等待中";
 "Waiting for VPN authorization. Complete the system confirmation in Settings to continue." = "正在等待 VPN 授权。请在系统设置中完成确认后继续。";
+"Waiting for approval" = "等待批准";
 "Waiting for the current update to finish…" = "等待进行中的更新完成…";
 "Waiting for the network" = "等待网络";
 "Waiting for the tunnel to download rule sets…" = "正在下载规则集…";
@@ -4136,6 +4174,8 @@
 "start: DNS-only mode is selected. Remove the DNS configuration in Tools before starting VPN." = "启动失败：当前为仅 DNS 模式。请先在「工具」中移除 DNS 配置，再启动 VPN。";
 "sub-rule name" = "sub-rule 名称";
 "surrounding whitespace" = "前后带空白";
+"tailscale node is not started" = "Tailscale 节点尚未启动";
+"tailscale node not found" = "找不到 Tailscale 节点";
 "tcp" = "tcp";
 "the app-wide runtime preference could not be persisted" = "全局设置没能保存";
 "the core could not read this rule set" = "这个规则集无法读取";

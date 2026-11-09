@@ -845,6 +845,8 @@ extension ClashSystemRoute {
                 return .utilities(.root)
             case .more:
                 return .more(.root)
+            case .tailscale:
+                return .utilities(.tailscale)
             }
         }
     }

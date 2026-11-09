@@ -44,8 +44,55 @@ jobs:
           key: go-${{ runner.os }}-${{ hashFiles('Dependencies.lock.json') }}
           restore-keys: go-${{ runner.os }}-
 
+      # The kernel SDK takes most of the run to build and only changes with
+      # the kernel revision (or the toolchain that builds it), so it is
+      # cached under that key. On a hit the kernel is cloned at the pinned
+      # revision and the cached SDK and its inventory receipt are put where
+      # bootstrap.py looks: it then verifies them (every slice's build info
+      # must name the pinned revision, clean) instead of rebuilding.
+      - name: Kernel SDK cache key
+        id: sdk-key
+        run: |
+          rev=$(python3 -c 'import json;print(json.load(open("Dependencies.lock.json"))["kernel"]["revision"])')
+          tools=$(python3 -c 'import json;l=json.load(open("Dependencies.lock.json"));print(l["gomobile"].rsplit("@",1)[-1])')
+          echo "key=clash-sdk-v1-${rev}-go1.26.10-gomobile${tools}-$(xcodebuild -version | head -1 | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
+      - name: Restore kernel SDK
+        id: sdk-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .build/sdk-cache
+          key: ${{ steps.sdk-key.outputs.key }}
+
+      - name: Seed the cached kernel SDK
+        if: steps.sdk-cache.outputs.cache-hit == 'true'
+        run: |
+          set -euo pipefail
+          repo=$(python3 -c 'import json;print(json.load(open("Dependencies.lock.json"))["kernel"]["repository"])')
+          rev=$(python3 -c 'import json;print(json.load(open("Dependencies.lock.json"))["kernel"]["revision"])')
+          mkdir -p .build/dependencies
+          git clone --quiet "$repo" .build/dependencies/kernel
+          git -C .build/dependencies/kernel checkout --quiet --detach "$rev"
+          mv .build/sdk-cache/Clash.xcframework .build/dependencies/kernel/Clash.xcframework
+          mv .build/sdk-cache/sdk-inventory.json .build/dependencies/sdk-inventory.json
+          echo "Reusing the kernel SDK built for $rev"
+
       - name: Bootstrap (build the pinned kernel SDK from source)
         run: .build/python-env/bin/python scripts/bootstrap.py
+
+      - name: Stage the kernel SDK for the cache
+        if: steps.sdk-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p .build/sdk-cache
+          ditto .build/dependencies/kernel/Clash.xcframework .build/sdk-cache/Clash.xcframework
+          cp .build/dependencies/sdk-inventory.json .build/sdk-cache/sdk-inventory.json
+
+      - name: Save kernel SDK
+        if: steps.sdk-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .build/sdk-cache
+          key: ${{ steps.sdk-key.outputs.key }}
 
       - name: Configure (XcodeGen project and macOS CLI helper)
         run: .build/python-env/bin/python scripts/configure.py
@@ -59,6 +106,43 @@ jobs:
             -derivedDataPath .build/DerivedData \
             CODE_SIGNING_ALLOWED=NO build 2>&1 | tee .build/xcodebuild.log | grep -E "error:|warning: .*deprecated|\*\* BUILD" || true
           grep -q "\*\* BUILD SUCCEEDED \*\*" .build/xcodebuild.log
+
+      # Best effort: boot a Simulator, open Utilities › Tailscale through
+      # clash://open/tailscale and screenshot it, in English and Chinese.
+      # Without the VPN running the page shows its empty state.
+      - name: Screenshot the Tailscale page
+        id: screenshot
+        continue-on-error: true
+        timeout-minutes: 15
+        run: |
+          set -x
+          mkdir -p .build/artifacts/screenshots
+          udid=$(xcrun simctl list devices available -j | python3 -c '
+          import json,sys
+          devices=json.load(sys.stdin)["devices"]
+          ios=[(rt,d) for rt,ds in devices.items() if "iOS" in rt for d in ds if d["name"].startswith("iPhone")]
+          ios.sort(key=lambda x:x[0])
+          print(ios[-1][1]["udid"] if ios else "")')
+          test -n "$udid"
+          xcrun simctl boot "$udid" || true
+          xcrun simctl bootstatus "$udid" -b
+          app=.build/DerivedData/Build/Products/Release-iphonesimulator/ClashiOS.app
+          [ -d "$app" ] || app=$(ls -d .build/DerivedData/Build/Products/Release-iphonesimulator/*.app | head -1)
+          bid=$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")
+          xcrun simctl install "$udid" "$app"
+          shoot() {
+            xcrun simctl launch "$udid" "$bid" "$@"
+            sleep 12
+            xcrun simctl io "$udid" screenshot ".build/artifacts/screenshots/launch-$lang.png"
+            xcrun simctl openurl "$udid" clash://open/tailscale
+            sleep 8
+            xcrun simctl io "$udid" screenshot ".build/artifacts/screenshots/tailscale-$lang.png"
+            xcrun simctl terminate "$udid" "$bid" || true
+          }
+          lang=en shoot -AppleLanguages '(en)' -AppleLocale en_US
+          lang=zh-Hans shoot -AppleLanguages '(zh-Hans)' -AppleLocale zh_CN
+          xcrun simctl spawn "$udid" log show --last 3m --style compact --predicate "process CONTAINS 'Clash'" > .build/artifacts/screenshots/simulator.log 2>&1 || true
+          ls -la .build/artifacts/screenshots
 
       - name: Package artifacts
         if: always()

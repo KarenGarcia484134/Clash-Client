@@ -23,6 +23,8 @@ enum ClashSystemRoute: Equatable, Sendable {
         case proxies
         case utilities
         case more
+        /// clash://open/tailscale opens Utilities › Tailscale.
+        case tailscale
     }
 
     case vpn(VPNAction)

@@ -255,6 +255,7 @@
 "A node in this chain is missing or ambiguous. Edit the chain before updating this source." = "鏈裡有節點缺失或不唯一，先編輯鏈式代理再更新這個來源。";
 "A node named “%@” is already in this configuration." = "這份設定檔裡已有名為「%@」的節點。";
 "A node share link is added to Custom Nodes. HTTP is not encrypted. Credentials in the address travel in the clear." = "節點分享連結會新增至自建節點。HTTP 連結會明文傳輸。";
+"A node starts the first time traffic goes through it. Tap a node to see its peers." = "節點在首次有流量經過時啟動。點一下節點查看它的對端。";
 "A packet tunnel cannot attribute traffic to ordinary app processes. Process matching is disabled." = "通道無法把流量歸屬到一般 App 的程式。程序符合已停用。";
 "A partial settings upgrade was detected. Restore the previous profile data, then retry." = "偵測到設定升級只完成了一半。請先回復之前的設定檔資料，再重試。";
 "A passphrase needs the private key it unlocks." = "口令需要配套的私鑰。";
@@ -312,6 +313,7 @@
 "Accessibility text" = "輔助功能文字";
 "Acknowledgements" = "Acknowledgements";
 "Action" = "操作";
+"Actions" = "操作";
 "Actions for %@" = "%@ 的操作";
 "Activate" = "啟用";
 "Activate or sync this profile first." = "請先啟用或同步該設定檔。";
@@ -851,6 +853,7 @@
 "Connect on Any Network" = "任何網路下都連線";
 "Connect on Cellular" = "使用行動網路時連線";
 "Connect on Wi-Fi" = "在 Wi-Fi 下連線";
+"Connect the VPN to see the Tailscale nodes." = "連線 VPN 後即可查看 Tailscale 節點。";
 "Connect to View Proxies" = "連線後檢視代理";
 "Connect to a usable network and try again." = "請連線可用網路後重試。";
 "Connect to refresh" = "連線後可重新整理";
@@ -999,6 +1002,7 @@
 "Customized" = "已自訂";
 "Custom…" = "自訂…";
 "Cut" = "剪下";
+"DERP Relays" = "DERP 中繼";
 "DNS" = "DNS";
 "DNS & Local Mapping" = "DNS 與本機對映";
 "DNS Cache Maintenance" = "DNS 快取維護";
@@ -1119,6 +1123,7 @@
 "Direct is Clash's system fallback and cannot be deleted" = "Direct 是 Clash 的系統備援設定，不能刪除";
 "Direct nameserver" = "直連 nameserver";
 "Direct traffic follows the policy above" = "直連流量遵循上方策略";
+"Direct · %lld ms" = "直連 · %lld ms";
 "Direct-connection nameserver" = "直連 nameserver";
 "Disable UDP" = "停用 UDP";
 "Discard" = "放棄";
@@ -1562,6 +1567,7 @@
 "Host Key Algorithms" = "主機金鑰演算法";
 "Host Key Pinning" = "主機金鑰固定";
 "Hours" = "小時";
+"How this device reaches each relay: directly, or through the node's dialer proxy." = "本機連線各中繼的方式：直連，或經由節點的 dialer-proxy。";
 "Human Test" = "人工測試";
 "Hysteria 2" = "Hysteria 2";
 "Hysteria 2 Demo" = "Hysteria 2 Demo";
@@ -1792,6 +1798,7 @@
 "Loading Proxies" = "正在載入代理";
 "Loading Sources…" = "正在載入節點來源…";
 "Loading “%@” When It Stopped" = "停止時正在裝載「%@」";
+"Loading…" = "正在載入…";
 "Local" = "本機";
 "Local Inbox" = "本機收件箱";
 "Local Mapping" = "本機對映";
@@ -1814,6 +1821,7 @@
 "Location" = "位置";
 "Log" = "記錄";
 "Log Export" = "記錄匯出";
+"Log In" = "登入";
 "Log Settings" = "記錄設定";
 "Log Settings is set to “%@”, which runs over this." = "記錄設定選了「%@」，暫時蓋過這裡。";
 "Log batches dropped" = "丟棄的記錄批次";
@@ -1836,6 +1844,7 @@
 "MRS rule sets can't be browsed line by line." = "MRS 格式，不提供逐條瀏覽。";
 "MTU Discovery" = "MTU 探測";
 "Mac UI Review" = "Mac 介面評審";
+"MagicDNS" = "MagicDNS";
 "Make New Certificate" = "生成新憑證";
 "Make New Certificate…" = "生成新憑證…";
 "Make New Secret" = "生成新金鑰";
@@ -2010,6 +2019,7 @@
 "Needs %@" = "還需要%@";
 "Needs Attention" = "需要處理";
 "Needs HTTPS Decryption" = "需要 HTTPS 解密";
+"Needs login" = "需要登入";
 "Nested Policy" = "巢狀策略";
 "Nested policy groups" = "巢狀策略群組";
 "Network" = "網路";
@@ -2048,6 +2058,7 @@
 "No Custom Groups" = "沒有自訂群組";
 "No Custom Nodes" = "沒有自建節點";
 "No Custom Rules" = "沒有自訂規則";
+"No DERP relay used yet." = "尚未使用 DERP 中繼。";
 "No DNS" = "無 DNS";
 "No Desktop or Inbound Fields" = "沒有桌面或入站欄位";
 "No Details" = "沒有詳情";
@@ -2083,6 +2094,7 @@
 "No active rules were returned. Pull to refresh." = "未回傳執行中的規則。下拉重新整理。";
 "No address was returned for this name." = "這個網域沒有回傳網址。";
 "No answer" = "無回應";
+"No answer from the VPN extension" = "VPN 延伸功能沒有回應";
 "No cached source; activate the profile once first" = "沒有快取的源文字；請先啟用一次該設定檔";
 "No categories available" = "無可用分類";
 "No changes were published, and the reason was not recognised." = "沒有做任何更改，原因不明";
@@ -2109,6 +2121,7 @@
 "No nodes were found. Try another link or file, or create a node manually." = "未找到節點。請換一個連結或檔案，也可以手動建立。";
 "No nodes yet. Add one, or copy nodes from the node library." = "還沒有節點。可以新增一個，或從節點庫複製。";
 "No optional cards. The Connection card always stays on Overview." = "沒有可選卡片。連線卡片始終固定在概覽上。";
+"No peers yet." = "暫無對端。";
 "No policy groups yet. A group chooses which node traffic goes through." = "還沒有代理組。代理組決定流量走哪個節點。";
 "No policy matched, so the main resolvers answer" = "沒有策略命中，由 main 解析器回答";
 "No profiles yet" = "還沒有設定檔";
@@ -2141,6 +2154,7 @@
 "Node Overrides" = "節點覆寫";
 "Node Sets (%@)" = "節點集合（%@）";
 "Node Sources" = "節點來源";
+"Node Traffic" = "節點自身流量";
 "Node could not be saved" = "節點未能儲存";
 "Nodes" = "節點";
 "Nodes copied from a link don’t update with it. To keep them updated, add the whole link in Proxy Providers." = "從連結複製的節點不會隨連結更新；要自動更新，到「代理集合」裡加整個連結。";
@@ -2192,6 +2206,7 @@
 "Not set" = "未設定";
 "Not shown" = "未顯示";
 "Not signed in to iCloud." = "未登入 iCloud。";
+"Not started" = "未啟動";
 "Not tested" = "未測試";
 "Not used here" = "這裡不會用到";
 "Not used on iOS" = "iOS 上不使用";
@@ -2245,6 +2260,7 @@
 "One address per line." = "每行一個位址。";
 "One domain, or a wildcard such as +.example.com." = "一個網域，或形如 +.example.com 的萬用字元。";
 "One or more rules cannot be matched safely on iOS." = "有規則無法在 iOS 上安全符合。";
+"Online" = "在線";
 "Online Rule Library" = "線上規則庫";
 "Only affects this configuration. Does not change Rule Library. Personal rules apply in Standard override mode." = "僅影響此設定，不修改規則庫。個人規則在標準覆寫模式下生效。";
 "Only checked: nothing was published or reconnected." = "只做了檢查：設定檔沒有改動，連線沒有中斷";
@@ -2351,6 +2367,8 @@
 "Payload exceeded Clash's local nesting-depth cap." = "載荷巢狀深度超過 Clash 的本機上限。";
 "Payload exceeded Clash's local two-megabyte size cap." = "載荷超過 Clash 本機兩兆位元組上限。";
 "Peer Pre-shared Key" = "對端預共享金鑰";
+"Peer relay · %lld ms" = "對端中繼 · %lld ms";
+"Peers" = "對端";
 "Persistent Keepalive" = "持久保持連線 (persistent-keepalive)";
 "Personal Hotspot" = "個人熱點";
 "Personal Rules" = "個人規則";
@@ -2360,6 +2378,9 @@
 "Physical Test" = "真機測試";
 "Physical v4 / v6" = "物理 v4 / v6";
 "Pin a domain to an address" = "將網域固定到指定網址";
+"Ping" = "Ping";
+"Ping All" = "全部 Ping";
+"Ping shows whether a peer is reached directly or through a relay, and how long it takes." = "Ping 會顯示對端是直連還是經由中繼，以及延遲。";
 "Pink" = "粉色";
 "Plain HTTP is not allowed" = "不允許明文 HTTP";
 "Platform Routing Fields" = "平台路由欄位";
@@ -2568,6 +2589,8 @@
 "Receive Window" = "接收視窗 (recv-window)";
 "Recent requests, kept after disconnect" = "最近的請求，中斷後仍保留";
 "Recently Used" = "最近使用";
+"Reconnect" = "重新連線";
+"Reconnect retries the login now when the node is stuck logged out; the saved login is kept." = "節點卡在未登入狀態時，重新連線會立即重試登入；已儲存的登入資訊會保留。";
 "Record Logs" = "啟用記錄";
 "Record logs to help troubleshoot problems." = "開啟後保留記錄，協助排除問題。";
 "Recording" = "正在記錄";
@@ -2602,6 +2625,7 @@
 "Rejected" = "已拒絕";
 "Rejects UDP on port 443 that no rule could carry. Web and API traffic falls back to HTTP/2 through the proxy instead of leaving over DIRECT. Games, FaceTime, voice calls and STUN are untouched." = "拒絕沒有任何規則肯承載的 443 連接埠 UDP。網頁與 API 流量回落到 HTTP/2 經代理走，而不是帶著你自己的位址經 DIRECT 出門。遊戲、FaceTime、語音通話與 STUN 不受影響。";
 "Rejects matched traffic instead of opening an outbound connection." = "拒絕命中的流量，而不是發起出站連線。";
+"Relay %@ · %lld ms" = "中繼 %1$@ · %2$lld ms";
 "Release Memory" = "釋放記憶體";
 "Releasing Memory…" = "正在釋放記憶體…";
 "Remaining" = "剩餘流量";
@@ -2674,7 +2698,10 @@
 "Reset Local Data" = "重設本機資料";
 "Reset Local Data?" = "要重置本機資料嗎？";
 "Reset Local Data…" = "重置本機資料…";
+"Reset Login" = "重設登入";
+"Reset Login…" = "重設登入…";
 "Reset Saved Credentials" = "重置已儲存的認證資訊";
+"Reset Tailscale login?" = "重設 Tailscale 登入？";
 "Reset VPN Profile" = "重置 VPN 設定檔";
 "Reset VPN Profile?" = "重置 VPN 設定檔？";
 "Reset this module's settings?" = "恢復這個模組的參數？";
@@ -3033,6 +3060,7 @@
 "Standard" = "標準";
 "Start Clash" = "啟動 Clash";
 "Start From" = "從哪裡開始";
+"Start Node" = "啟動節點";
 "Start Recording" = "開始記錄";
 "Start Sharing" = "開始共享";
 "Start Test" = "開始測試";
@@ -3143,6 +3171,8 @@
 "TUN IPv6: Off" = "關";
 "TUN IPv6: On" = "開啟";
 "Tabs" = "標籤頁";
+"Tailnet nodes, peers, and relay paths" = "Tailnet 節點、對端與中繼路徑";
+"Tailscale" = "Tailscale";
 "Tailscale Demo" = "Tailscale Demo";
 "Taken over by the override script" = "由覆寫指令碼接管";
 "Tap Retry, then allow VPN setup." = "點重試，並允許加入 VPN 設定";
@@ -3325,6 +3355,7 @@
 "The download limit must be zero or a positive number of bytes." = "下載上限須為零或正數位元組。";
 "The download safety limit is invalid." = "下載安全上限無效。";
 "The downloaded text is not valid configuration YAML. Edit the profile or contact the provider." = "下載的內容不是有效的設定檔 YAML。請編輯設定檔或聯絡提供方。";
+"The exit node in the profile could not be set. Check that it is online and offered as an exit node." = "無法設定設定檔中的出口節點。請確認它在線，並已開放為出口節點。";
 "The fetch proxy is kept as written. Clash downloads this provider itself and uses the cached copy if a refresh fails." = "抓取代理依原樣保留。Clash 自己下載該資源；重新整理失敗時使用快取副本。";
 "The file this line needs isn't on this device, so it was skipped." = "這一行要的檔案不在這台裝置上，已跳過。";
 "The file this line uses couldn't be downloaded, so it was skipped." = "這一行用的檔案下載不了，已跳過。";
@@ -3361,6 +3392,7 @@
 "The local profile source is unavailable" = "本機設定檔源不可用";
 "The local source file for this profile is unavailable." = "本設定檔的本機原始檔不可用。";
 "The log is exported exactly as written, so it can contain your servers and any credential a line mentions. Share it only with someone you would show your configuration to." = "記錄按原樣匯出，因此其中可能包含你的伺服器，以及某一行裡出現的任何認證資訊。只發給你願意給他看設定檔的人。";
+"The login was reset and the profile reloaded." = "登入已重設，設定檔已重新載入。";
 "The maximum padding cannot be smaller than the minimum." = "填充上限不能小於下限。";
 "The module list cannot be read right now. Try again." = "暫時無法讀取模組列表，請再試一次。";
 "The module list could not be read, so nothing was changed." = "讀不到模組列表，沒有改動。";
@@ -3660,6 +3692,7 @@
 "This profile chooses the route automatically" = "本設定檔自動選擇線路";
 "This profile does not declare routing rules or rule providers." = "本設定檔沒有寫規則或規則集合。";
 "This profile has changes that have not been saved." = "目前設定有尚未儲存的更改。";
+"This profile has no Tailscale nodes." = "此設定檔沒有 Tailscale 節點。";
 "This profile has no configuration document yet." = "這份設定檔還沒有設定文件。";
 "This profile has no previously applied configuration." = "此設定尚無已套用的版本。";
 "This profile has no proxies that can be linked." = "本設定檔沒有可串聯的代理。";
@@ -3704,11 +3737,14 @@
 "This security layer needs TLS. Turn TLS on, or remove the layer." = "這個安全層需要 TLS。開啟 TLS，或去掉這一層。";
 "This security layer needs a TCP transport. Change the network, or remove the layer." = "該安全層需要 TCP 傳輸。換一個 network，或者移除該安全層。";
 "This selection has not been saved." = "此選擇尚未儲存。";
+"This signs the node out and deletes its saved login on this device, then reloads the profile. The node logs in again with its auth key, or shows a new login link." = "這會讓節點登出，並刪除它在本裝置上儲存的登入資訊，然後重新載入設定檔。節點會用它的 auth key 重新登入，或顯示新的登入連結。";
 "This source does not request a desktop or inbound server surface." = "該源未請求桌面或入站服務面。";
 "This source has changes that have not been saved." = "該原始碼有未儲存的更改。";
 "This source is used by a proxy chain. Edit or delete the chain first." = "這個來源正被鏈式代理使用，先編輯或刪除那條鏈。";
 "This source version already exists with different contents." = "這個來源版本已存在，但內容不同。";
 "This start loaded %@ of them · %@" = "本次啟動裝載了其中 %@ 個 · %@";
+"Through %@" = "經由 %@";
+"Through proxy" = "經由代理";
 "Time" = "時間";
 "Time Synchronization" = "時間同步";
 "Timed out" = "逾時";
@@ -3810,6 +3846,7 @@
 "Unknown Keys" = "未知鍵";
 "Unknown destination" = "未知目標";
 "Unprobed" = "未細分";
+"Unreadable answer" = "無法讀取的回應";
 "Unreadable configuration" = "設定不可讀";
 "Unreliable on iOS — the packet tunnel never sets DSCP, so every flow reads as 0: DSCP,0 matches all traffic and any other value never matches." = "在 iOS 上不可靠：所有流量的 DSCP 都是 0，所以 DSCP,0 符合全部流量，其他取值永遠符合不到";
 "Unsaved edits from last time were restored." = "已恢復上次未儲存的編輯。";
@@ -3959,6 +3996,7 @@
 "Wait for the current LAN proxy change to finish." = "請等待目前區域網路代理變更完成。";
 "Waiting" = "等待中";
 "Waiting for VPN authorization. Complete the system confirmation in Settings to continue." = "正在等待 VPN 授權。請在系統設定中完成確認後繼續。";
+"Waiting for approval" = "等待核准";
 "Waiting for the current update to finish…" = "等待進行中的更新完成…";
 "Waiting for the network" = "等待網路";
 "Waiting for the tunnel to download rule sets…" = "正在下載規則集…";
@@ -4136,6 +4174,8 @@
 "start: DNS-only mode is selected. Remove the DNS configuration in Tools before starting VPN." = "啟動失敗：目前為僅 DNS 模式。請先在「工具」中移除 DNS 設定，再啟動 VPN。";
 "sub-rule name" = "sub-rule 名稱";
 "surrounding whitespace" = "前後帶空白";
+"tailscale node is not started" = "Tailscale 節點尚未啟動";
+"tailscale node not found" = "找不到 Tailscale 節點";
 "tcp" = "tcp";
 "the app-wide runtime preference could not be persisted" = "全域設定沒能儲存";
 "the core could not read this rule set" = "這個規則集無法讀取";

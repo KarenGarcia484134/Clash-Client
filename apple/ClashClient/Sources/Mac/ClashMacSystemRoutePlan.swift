@@ -43,6 +43,7 @@ struct ClashMacSystemRoutePlan: Equatable {
             case .logs: secondary = .utility(.logs)
             case .tools, .utilities: secondary = .utility(.root)
             case .more: secondary = .more(.root)
+            case .tailscale: secondary = .utility(.tailscale)
             }
             return ClashMacSystemRoutePlan(destination: secondary, command: nil, mode: nil)
         }

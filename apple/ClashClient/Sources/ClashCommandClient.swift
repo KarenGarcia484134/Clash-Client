@@ -1705,6 +1705,35 @@ return
      
      
      
+    /// Sends a `{"cmd":"tailscale"}` request to the VPN extension, which
+    /// forwards it to the kernel's tailscale exports. A status that starts
+    /// a node waits for it to settle, so the wait is longer than the usual
+    /// IPC timeout.
+    func sendTailscale(_ request: [String: Any], timeoutSeconds: UInt64 = 30) async -> Data? {
+        guard let providerSession else { return nil }
+        var payload = request
+        payload["cmd"] = "tailscale"
+        return await ClashClient(session: providerSession).send(
+            payload,
+            timeoutNanoseconds: timeoutSeconds * 1_000_000_000
+        )
+    }
+
+    /// Asks the VPN extension to reload the staged profile, as a profile
+    /// change does. Returns why it refused, or nil.
+    func requestProviderReload() async -> String? {
+        guard let providerSession else { return "VPN Provider API is not connected." }
+        guard let data = await ClashClient(session: providerSession).send(
+            ["cmd": "reload"],
+            timeoutNanoseconds: 20_000_000_000
+        ) else { return "No answer from the VPN extension" }
+        if let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let message = object["error"] as? String, !message.isEmpty {
+            return message
+        }
+        return nil
+    }
+
     func runDNSQuery(name: String, type: String) async -> String? {
         guard let client else { return nil }
         do {

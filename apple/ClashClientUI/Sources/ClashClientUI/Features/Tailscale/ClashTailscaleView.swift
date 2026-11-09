@@ -75,7 +75,7 @@ public struct ClashTailscaleView: View {
                 actionsSection(node)
             }
         }
-        .clashRuntimeGroupedFormStyle()
+        .tailscaleGroupedFormStyle()
         .clashPageTitle("Tailscale")
         .refreshable { await reload() }
         .task(id: isConnected) { await reload() }
@@ -508,6 +508,16 @@ public struct ClashTailscaleView: View {
 }
 
 private extension View {
+    /// The grouped form look the other runtime pages use.
+    @ViewBuilder
+    func tailscaleGroupedFormStyle() -> some View {
+        if #available(iOS 16.0, tvOS 16.0, *) {
+            formStyle(.grouped)
+        } else {
+            self
+        }
+    }
+
     @ViewBuilder
     func textSelectionIfAvailable() -> some View {
         #if os(tvOS)

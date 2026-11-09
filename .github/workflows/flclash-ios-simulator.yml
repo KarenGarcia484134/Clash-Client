@@ -1,0 +1,87 @@
+name: iOS Simulator build (unsigned)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [flclash]
+
+concurrency:
+  group: ios-simulator-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: xcode-27
+    timeout-minutes: 150
+    env:
+      GOTOOLCHAIN: auto
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+          xcodebuild -version
+          xcodebuild -showsdks | grep -E "iphone|appletv|macosx"
+          brew install xcodegen
+          python3 -m venv .build/python-env
+          .build/python-env/bin/python -m pip install --quiet PyYAML
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.10'
+          cache: false
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/Library/Caches/go-build
+          key: go-${{ runner.os }}-${{ hashFiles('Dependencies.lock.json') }}
+          restore-keys: go-${{ runner.os }}-
+
+      - name: Bootstrap (build the pinned kernel SDK from source)
+        run: .build/python-env/bin/python scripts/bootstrap.py
+
+      - name: Configure (XcodeGen project and macOS CLI helper)
+        run: .build/python-env/bin/python scripts/configure.py
+
+      - name: Build ClashiOS for the iOS Simulator
+        run: |
+          set -o pipefail
+          xcodebuild -project apple/ClashClient/ClashClient.xcodeproj \
+            -scheme ClashiOS -configuration Release \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath .build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO build 2>&1 | tee .build/xcodebuild.log | grep -E "error:|warning: .*deprecated|\*\* BUILD" || true
+          grep -q "\*\* BUILD SUCCEEDED \*\*" .build/xcodebuild.log
+
+      - name: Package artifacts
+        if: always()
+        run: |
+          mkdir -p .build/artifacts
+          if [ -d .build/DerivedData/Build/Products/Release-iphonesimulator ]; then
+            cd .build/DerivedData/Build/Products/Release-iphonesimulator
+            ls
+            for app in *.app; do
+              [ -d "$app" ] && ditto -c -k --keepParent "$app" "$GITHUB_WORKSPACE/.build/artifacts/${app%.app}-simulator.app.zip"
+            done
+            cd "$GITHUB_WORKSPACE"
+          fi
+          if [ -e Clash.xcframework ]; then
+            ditto -c -k --keepParent "$(readlink -f Clash.xcframework)" .build/artifacts/Clash.xcframework.zip
+          fi
+          cp .build/xcodebuild.log .build/artifacts/ 2>/dev/null || true
+          ls -la .build/artifacts
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clash-ios-simulator
+          path: .build/artifacts
+          if-no-files-found: warn
+          retention-days: 14

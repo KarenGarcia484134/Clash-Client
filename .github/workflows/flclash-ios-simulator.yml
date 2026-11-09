@@ -121,22 +121,25 @@ jobs:
           import json,sys
           devices=json.load(sys.stdin)["devices"]
           ios=[(rt,d) for rt,ds in devices.items() if "iOS" in rt for d in ds if d["name"].startswith("iPhone")]
-          ios.sort(key=lambda x:x[0])
+          # One display only: a two-display iPhone makes simctl io ask which.
+          ios.sort(key=lambda x:("Duo" not in x[1]["name"] and "Fold" not in x[1]["name"], x[0]))
           print(ios[-1][1]["udid"] if ios else "")')
           test -n "$udid"
           xcrun simctl boot "$udid" || true
           xcrun simctl bootstatus "$udid" -b
-          app=.build/DerivedData/Build/Products/Release-iphonesimulator/ClashiOS.app
-          [ -d "$app" ] || app=$(ls -d .build/DerivedData/Build/Products/Release-iphonesimulator/*.app | head -1)
+          app=.build/DerivedData/Build/Products/Release-iphonesimulator/Clash.app
           bid=$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")
           xcrun simctl install "$udid" "$app"
+          snap() {
+            xcrun simctl io "$udid" screenshot "$1" || xcrun simctl io "$udid" screenshot --display=1 "$1"
+          }
           shoot() {
             xcrun simctl launch "$udid" "$bid" "$@"
             sleep 12
-            xcrun simctl io "$udid" screenshot ".build/artifacts/screenshots/launch-$lang.png"
+            snap ".build/artifacts/screenshots/launch-$lang.png"
             xcrun simctl openurl "$udid" clash://open/tailscale
             sleep 8
-            xcrun simctl io "$udid" screenshot ".build/artifacts/screenshots/tailscale-$lang.png"
+            snap ".build/artifacts/screenshots/tailscale-$lang.png"
             xcrun simctl terminate "$udid" "$bid" || true
           }
           lang=en shoot -AppleLanguages '(en)' -AppleLocale en_US

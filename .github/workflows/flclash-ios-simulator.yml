@@ -147,6 +147,54 @@ jobs:
           xcrun simctl spawn "$udid" log show --last 3m --style compact --predicate "process CONTAINS 'Clash'" > .build/artifacts/screenshots/simulator.log 2>&1 || true
           ls -la .build/artifacts/screenshots
 
+      - name: Build ClashiOS for iPhone (unsigned, no codesign)
+        run: |
+          set -o pipefail
+          xcodebuild -project apple/ClashClient/ClashClient.xcodeproj \
+            -scheme ClashiOS -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath .build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY='' \
+            DEVELOPMENT_TEAM='' \
+            PROVISIONING_PROFILE_SPECIFIER='' \
+            build 2>&1 | tee .build/xcodebuild-iphoneos.log | grep -E "error:|warning: .*deprecated|\*\* BUILD" || true
+          grep -q "\*\* BUILD SUCCEEDED \*\*" .build/xcodebuild-iphoneos.log
+
+      - name: Package unsigned iPhone IPA
+        run: |
+          set -euo pipefail
+          app=.build/DerivedData/Build/Products/Release-iphoneos/Clash.app
+          test -d "$app"
+          mkdir -p .build/ipa/Payload .build/ipa-artifacts/entitlements
+          # Fresh Payload each run
+          rm -rf .build/ipa/Payload/*
+          ditto "$app" .build/ipa/Payload/Clash.app
+          # Entitlements from XcodeGen outputs / DerivedData (unsigned bins rarely embed them)
+          while IFS= read -r f; do
+            base=$(basename "$f")
+            cp "$f" ".build/ipa-artifacts/entitlements/$base"
+          done < <(find apple/ClashClient .build/DerivedData/Build/Intermediates.noindex \
+            -name '*.entitlements' -o -name '*.xcent' 2>/dev/null | head -40)
+          # Best-effort dump from any Mach-O that already carries entitlements
+          if command -v codesign >/dev/null; then
+            find .build/ipa/Payload/Clash.app -type f -perm -111 | while read -r bin; do
+              rel=${bin#.build/ipa/Payload/Clash.app/}
+              safe=$(printf '%s' "$rel" | tr '/ ' '__')
+              codesign -d --entitlements :- "$bin" > ".build/ipa-artifacts/entitlements/codesign-$safe.plist" 2>/dev/null || true
+            done
+            find .build/ipa-artifacts/entitlements -name 'codesign-*.plist' -size 0 -delete
+          fi
+          ls -la .build/ipa-artifacts/entitlements || true
+          (
+            cd .build/ipa
+            zip -qry ../ipa-artifacts/Clash-flclash-unsigned.ipa Payload
+          )
+          cp .build/xcodebuild-iphoneos.log .build/ipa-artifacts/
+          ls -la .build/ipa-artifacts
+          unzip -l .build/ipa-artifacts/Clash-flclash-unsigned.ipa | head -40
+
       - name: Package artifacts
         if: always()
         run: |
@@ -171,4 +219,11 @@ jobs:
           name: clash-ios-simulator
           path: .build/artifacts
           if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clash-ios-unsigned-ipa
+          path: .build/ipa-artifacts
+          if-no-files-found: error
           retention-days: 14

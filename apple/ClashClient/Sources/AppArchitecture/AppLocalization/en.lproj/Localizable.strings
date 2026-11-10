@@ -10,6 +10,7 @@
 "%1$@ rules will not take effect on %2$@" = "%1$@ rules will not take effect on %2$@";
 "%1$@: %2$@ rules of this kind are kept but never match here." = "%1$@: %2$@ rules of this kind are kept but never match here.";
 "%1$@: %2$d rules of this kind are kept but never match here." = "%1$@: %2$d rules of this kind are kept but never match here.";
+"%@ dialer proxy settings were skipped" = "%@ dialer proxy settings were skipped";
 "%@\n%@" = "%@\n%@";
 "%@ (%@)" = "%@ (%@)";
 "%@ / %@" = "%@ / %@";
@@ -424,6 +425,7 @@
 "All" = "All";
 "All %@" = "All %@";
 "All %@ Are Up to Date" = "All %@ Are Up to Date";
+"All Dialer Proxies" = "All Dialer Proxies";
 "All Groups" = "All Groups";
 "All Local Proxies" = "All Local Proxies";
 "All Networks (0.0.0.0)" = "All Networks (0.0.0.0)";
@@ -753,8 +755,10 @@
 "Clean Up" = "Clean Up";
 "Clean Up Unused Data" = "Clean Up Unused Data";
 "Clear" = "Clear";
+"Clear All" = "Clear All";
 "Clear DNS cache?" = "Clear DNS cache?";
 "Clear Local Reports?" = "Clear Local Reports?";
+"Clear all dialer proxies set for this profile?" = "Clear all dialer proxies set for this profile?";
 "Clear the DNS cache?" = "Clear the DNS cache?";
 "Clear the Fake-IP cache?" = "Clear the Fake-IP cache?";
 "Clear these caches only after DNS changes or when a stale answer persists. The tunnel stays connected." = "Clear these only after changing DNS or when an outdated answer keeps coming back. You stay connected.";
@@ -934,6 +938,7 @@
 "Core, data, connection, and app settings" = "Data, connection, and app settings";
 "Could Not Save" = "Could Not Save";
 "Could not prepare the log for sharing." = "Could not prepare the log for sharing.";
+"Could not save the dialer proxy" = "Could not save the dialer proxy";
 "Could not update %@: %@" = "Could not update %@: %@";
 "Could not write the log to that location." = "Could not write the log to that location.";
 "Couldn't check the nodes" = "Couldn't check the nodes";
@@ -2062,6 +2067,7 @@
 "No DNS" = "No DNS";
 "No Desktop or Inbound Fields" = "No Desktop or Inbound Fields";
 "No Details" = "No Details";
+"No Dialer Proxy" = "None";
 "No Entry" = "No Entry";
 "No External Resources" = "No External Resources";
 "No Favorite Cards" = "No Favorite Cards";
@@ -2102,6 +2108,7 @@
 "No configuration files were provided." = "No configuration files were provided.";
 "No custom nodes yet." = "No custom nodes yet.";
 "No diagnostic report is available." = "No diagnostic report is available.";
+"No dialer proxies in this profile" = "No dialer proxies in this profile";
 "No direct traffic rules" = "No direct traffic rules";
 "No entries" = "No entries";
 "No expiry" = "No expiry";
@@ -2946,6 +2953,7 @@
 "Session details, network tests, and local reports" = "Connection details, network tests, and local reports";
 "Set Clash Routing Mode" = "Set Clash Routing Mode";
 "Set Clash VPN" = "Set Clash VPN";
+"Set Dialer Proxy" = "Set Dialer Proxy";
 "Set Routing Mode" = "Set Routing Mode";
 "Set Up" = "Set Up";
 "Set a proxy account or allowed devices to limit who can use it." = "Set a proxy account or allowed devices to limit who can use it.";
@@ -3299,6 +3307,7 @@
 "The client downloaded remote provider data into the immutable profile revision before Core started." = "The client downloaded remote provider data into the immutable profile revision before Core started.";
 "The client runtime compiler is unavailable." = "Can’t prepare the configuration right now — try again.";
 "The collection file is missing. Import its companion file again from the source." = "The collection file is missing. Import its companion file again from the source.";
+"The configuration can't be read right now." = "The configuration can't be read right now.";
 "The configuration cannot take this change." = "The configuration cannot take this change.";
 "The configuration changed meanwhile; %@ was not updated." = "The configuration changed meanwhile; %@ was not updated.";
 "The configuration changed. Reopen it and try again." = "The configuration changed. Reopen it and try again.";
@@ -3662,6 +3671,7 @@
 "This module's text can no longer be read, so the last one is still in use." = "This module's text can no longer be read, so the last one is still in use.";
 "This name could not be resolved just now." = "This name could not be resolved just now.";
 "This node already uses a dialer proxy. Choose a node without an existing chain." = "This node already uses a dialer proxy. Choose a node without an existing chain.";
+"This node comes from a proxy provider and cannot take its own dialer proxy" = "This node comes from a proxy provider and cannot take its own dialer proxy";
 "This node connects out through the group or proxy you pick here. None connects directly." = "This node connects out through the group or proxy you pick here. None connects directly.";
 "This node is not in the configuration or in any of its providers." = "This node is not in the configuration or in any of its providers.";
 "This node no longer exists." = "This node no longer exists.";
@@ -4079,6 +4089,7 @@
 "config deviations unavailable: " = "config deviations unavailable: ";
 "decided by the platform" = "decided by the platform";
 "deviations: not UTF-8" = "deviations: not UTF-8";
+"dialer proxy gone, skipped" = "dialer proxy gone, skipped";
 "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node." = "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node.";
 "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node; the imported source stays unchanged." = "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node; the imported source stays unchanged.";
 "dns explain not understood: " = "dns explain not understood: ";
@@ -4093,6 +4104,7 @@
 "file · managed local copy" = "file · managed local copy";
 "first-draw %{public}@ %{public}.1fms-after-push" = "first-draw %{public}@ %{public}.1fms-after-push";
 "from override" = "from override";
+"from profile" = "from profile";
 "gRPC Connections" = "gRPC Connections";
 "gRPC Ping" = "gRPC Ping";
 "gRPC Service" = "gRPC Service";
@@ -4134,6 +4146,7 @@
 "no reason given" = "no reason given";
 "no reason was given" = "no reason was given";
 "node %@" = "node %@";
+"node gone, skipped" = "node gone, skipped";
 "not available here" = "not available here";
 "not installed" = "not installed";
 "not present" = "not present";
@@ -4211,11 +4224,13 @@
 "udp / tcp / tls / https / quic address" = "udp / tcp / tls / https / quic address";
 "unexpected response" = "unexpected response";
 "until %@" = "until %@";
+"via %@" = "via %@";
 "vpn authorization save began" = "vpn authorization save began";
 "vpn authorization save confirmed" = "vpn authorization save confirmed";
 "vpn authorization still waiting" = "vpn authorization still waiting";
 "vpn start cancelled before request" = "vpn start cancelled before request";
 "vpn start cancelled during preparation" = "vpn start cancelled during preparation";
+"would loop, skipped" = "would loop, skipped";
 "· No nodes" = "· No nodes";
 "· Not supported" = "· Not supported";
 "“%@” Is Up to Date" = "“%@” Is Up to Date";

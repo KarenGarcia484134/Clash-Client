@@ -160,6 +160,8 @@ struct ProxiesOverviewAdapter: View {
      
     private let nodeScripts: [ClashProxyNodeScript]
     private let runNodeScript: ((String, String) -> Void)?
+     
+    private let setDialerProxy: ((String) -> Void)?
     private let initiallyExpandedGroup: String?
      
      
@@ -364,6 +366,7 @@ struct ProxiesOverviewAdapter: View {
         inspectMember: ((String) -> Void)? = nil,
         nodeScripts: [ClashProxyNodeScript] = [],
         runNodeScript: ((String, String) -> Void)? = nil,
+        setDialerProxy: ((String) -> Void)? = nil,
         initiallyExpandedGroup: String? = nil,
         rememberedExpandedGroups: Set<String> = [],
         rememberedOpenGroup: String? = nil,
@@ -400,6 +403,7 @@ struct ProxiesOverviewAdapter: View {
         self.inspectMember = inspectMember
         self.nodeScripts = nodeScripts
         self.runNodeScript = runNodeScript
+        self.setDialerProxy = setDialerProxy
         self.initiallyExpandedGroup = initiallyExpandedGroup
         self.rememberedExpandedGroups = rememberedExpandedGroups
         self.rememberedOpenGroup = rememberedOpenGroup
@@ -994,7 +998,8 @@ struct ProxiesOverviewAdapter: View {
                 rememberedOpenGroup: rememberedOpenGroup,
                 readerFoldedAll: readerFoldedAll,
                  
-                nodeScripts: runNodeScript == nil ? [] : nodeScripts
+                nodeScripts: runNodeScript == nil ? [] : nodeScripts,
+                offersDialerProxy: setDialerProxy != nil
             ),
             capabilities: AppleClientCapabilities([
                 .proxies: .available,
@@ -1052,6 +1057,8 @@ struct ProxiesOverviewAdapter: View {
                 testMember?(name, group)
             case .editMember(let name):
                 editMember?(name)
+            case .setDialerProxy(let name):
+                setDialerProxy?(name)
             case .inspectMember(let name):
                 inspectMember?(name)
             case .runNodeScript(let id, let node):

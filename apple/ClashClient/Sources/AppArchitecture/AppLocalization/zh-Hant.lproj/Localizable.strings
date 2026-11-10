@@ -10,6 +10,7 @@
 "%1$@ rules will not take effect on %2$@" = "%1$@ 條規則在 %2$@ 上不會生效";
 "%1$@: %2$@ rules of this kind are kept but never match here." = "%1$@：這類規則有 %2$@ 條，保留著，但在這裡符合不到。";
 "%1$@: %2$d rules of this kind are kept but never match here." = "%1$@：這類規則有 %2$d 條，保留著，但在這裡符合不到。";
+"%@ dialer proxy settings were skipped" = "%@ 個前置代理設定已失效";
 "%@\n%@" = "%@\n%@";
 "%@ (%@)" = "%@（%@）";
 "%@ / %@" = "%@ / %@";
@@ -424,6 +425,7 @@
 "All" = "全部";
 "All %@" = "全部 %@ 個";
 "All %@ Are Up to Date" = "%@ 個都已是最新";
+"All Dialer Proxies" = "全部前置代理";
 "All Groups" = "全部組";
 "All Local Proxies" = "全部本機代理";
 "All Networks (0.0.0.0)" = "所有網路（0.0.0.0）";
@@ -753,8 +755,10 @@
 "Clean Up" = "清理";
 "Clean Up Unused Data" = "清理未使用資料";
 "Clear" = "清除";
+"Clear All" = "清除全部";
 "Clear DNS cache?" = "清除 DNS 快取？";
 "Clear Local Reports?" = "清除本機報告？";
+"Clear all dialer proxies set for this profile?" = "清除目前設定檔的全部前置代理設定？";
 "Clear the DNS cache?" = "清除 DNS 快取？";
 "Clear the Fake-IP cache?" = "清除 Fake-IP 快取？";
 "Clear these caches only after DNS changes or when a stale answer persists. The tunnel stays connected." = "只在改過 DNS、或一直拿到過時結果時再清除。連線不受影響";
@@ -934,6 +938,7 @@
 "Core, data, connection, and app settings" = "資料、連線與 App 設定";
 "Could Not Save" = "無法儲存";
 "Could not prepare the log for sharing." = "無法準備要共享的記錄。";
+"Could not save the dialer proxy" = "前置代理沒有儲存";
 "Could not update %@: %@" = "無法更新 %@：%@";
 "Could not write the log to that location." = "無法把記錄寫到該位置。";
 "Couldn't check the nodes" = "無法檢查節點是否可用";
@@ -2062,6 +2067,7 @@
 "No DNS" = "無 DNS";
 "No Desktop or Inbound Fields" = "沒有桌面或入站欄位";
 "No Details" = "沒有詳情";
+"No Dialer Proxy" = "不使用";
 "No Entry" = "不經過任何節點";
 "No External Resources" = "沒有外部資源";
 "No Favorite Cards" = "尚未新增常用卡片";
@@ -2102,6 +2108,7 @@
 "No configuration files were provided." = "未提供設定檔。";
 "No custom nodes yet." = "還沒有自建節點。";
 "No diagnostic report is available." = "沒有可用的診斷報告。";
+"No dialer proxies in this profile" = "目前設定檔沒有前置代理";
 "No direct traffic rules" = "沒有直連流量規則";
 "No entries" = "無項目";
 "No expiry" = "無到期時間";
@@ -2946,6 +2953,7 @@
 "Session details, network tests, and local reports" = "連線詳情、網路測試與本機報告";
 "Set Clash Routing Mode" = "設定 Clash 出站模式";
 "Set Clash VPN" = "設定 Clash VPN";
+"Set Dialer Proxy" = "設定前置代理";
 "Set Routing Mode" = "設定出站模式";
 "Set Up" = "設定";
 "Set a proxy account or allowed devices to limit who can use it." = "設定代理帳號或允許的來源 IP，就能限制誰可以使用。";
@@ -3299,6 +3307,7 @@
 "The client downloaded remote provider data into the immutable profile revision before Core started." = "用戶端在核心啟動前，把遠端集合資料下載進了不可變的設定檔版本。";
 "The client runtime compiler is unavailable." = "暫時無法準備設定檔，請再試一次";
 "The collection file is missing. Import its companion file again from the source." = "缺少集合檔案，請在來源中重新匯入配套檔案。";
+"The configuration can't be read right now." = "暫時讀不到這份設定檔。";
 "The configuration cannot take this change." = "這份設定檔接受不了這次修改。";
 "The configuration changed meanwhile; %@ was not updated." = "設定在此期間有變動，%@ 未更新。";
 "The configuration changed. Reopen it and try again." = "設定檔已經變了，請重新開啟再試。";
@@ -3662,6 +3671,7 @@
 "This module's text can no longer be read, so the last one is still in use." = "這個模組儲存的內容已讀不了，仍在用上一次的。";
 "This name could not be resolved just now." = "剛才無法解析該網域。";
 "This node already uses a dialer proxy. Choose a node without an existing chain." = "這個節點已在用前置代理，請選一個沒有鏈的節點。";
+"This node comes from a proxy provider and cannot take its own dialer proxy" = "該節點來自代理集合，無法單獨設定前置代理";
 "This node connects out through the group or proxy you pick here. None connects directly." = "此節點經由你在這裡選擇的組或代理出站;None 表示直接連線。";
 "This node is not in the configuration or in any of its providers." = "該節點不在設定裡，也不在任何代理集合裡。";
 "This node no longer exists." = "此節點已不存在。";
@@ -4079,6 +4089,7 @@
 "config deviations unavailable: " = "無法取得設定偏離清單：";
 "decided by the platform" = "由平台決定";
 "deviations: not UTF-8" = "偏離清單：不是 UTF-8";
+"dialer proxy gone, skipped" = "前置代理已不存在，已略過";
 "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node." = "dialer-proxy：該節點經由所選群組或代理連線，隨節點一起儲存。";
 "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node; the imported source stays unchanged." = "dialer-proxy：該節點經由所選群組或代理連線，隨節點一起儲存；匯入的原始碼保持不變。";
 "dns explain not understood: " = "DNS 走向回應無法解析：";
@@ -4093,6 +4104,7 @@
 "file · managed local copy" = "file · 託管的本機副本";
 "first-draw %{public}@ %{public}.1fms-after-push" = "first-draw %{public}@ %{public}.1fms-after-push";
 "from override" = "來自覆寫";
+"from profile" = "來自設定檔";
 "gRPC Connections" = "gRPC Connections";
 "gRPC Ping" = "gRPC Ping";
 "gRPC Service" = "gRPC Service";
@@ -4134,6 +4146,7 @@
 "no reason given" = "未說明原因";
 "no reason was given" = "核心未給出原因";
 "node %@" = "節點 %@";
+"node gone, skipped" = "節點已不存在，已略過";
 "not available here" = "在此平台不可用";
 "not installed" = "未安裝";
 "not present" = "沒有這一項";
@@ -4211,11 +4224,13 @@
 "udp / tcp / tls / https / quic address" = "udp / tcp / tls / https / quic address";
 "unexpected response" = "意外的回應";
 "until %@" = "%@ 到期";
+"via %@" = "經 %@";
 "vpn authorization save began" = "VPN 授權儲存開始";
 "vpn authorization save confirmed" = "VPN 授權儲存已確認";
 "vpn authorization still waiting" = "仍在等待 VPN 授權";
 "vpn start cancelled before request" = "VPN 啟動在請求前取消";
 "vpn start cancelled during preparation" = "VPN 啟動在準備期間取消";
+"would loop, skipped" = "會形成循環，已略過";
 "· No nodes" = "· 無節點";
 "· Not supported" = "· 不支援";
 "“%@” Is Up to Date" = "「%@」已是最新";

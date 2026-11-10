@@ -10,6 +10,7 @@
 "%1$@ rules will not take effect on %2$@" = "%1$@ 条规则在 %2$@ 上不会生效";
 "%1$@: %2$@ rules of this kind are kept but never match here." = "%1$@：这类规则有 %2$@ 条，保留着，但在这里匹配不到。";
 "%1$@: %2$d rules of this kind are kept but never match here." = "%1$@：这类规则有 %2$d 条，保留着，但在这里匹配不到。";
+"%@ dialer proxy settings were skipped" = "%@ 个前置代理设置已失效";
 "%@\n%@" = "%@\n%@";
 "%@ (%@)" = "%@（%@）";
 "%@ / %@" = "%@ / %@";
@@ -424,6 +425,7 @@
 "All" = "全部";
 "All %@" = "全部 %@ 个";
 "All %@ Are Up to Date" = "%@ 个都已是最新";
+"All Dialer Proxies" = "全部前置代理";
 "All Groups" = "全部组";
 "All Local Proxies" = "全部本地代理";
 "All Networks (0.0.0.0)" = "所有网络（0.0.0.0）";
@@ -753,8 +755,10 @@
 "Clean Up" = "清理";
 "Clean Up Unused Data" = "清理未使用数据";
 "Clear" = "清除";
+"Clear All" = "清除全部";
 "Clear DNS cache?" = "清除 DNS 缓存？";
 "Clear Local Reports?" = "清除本地报告？";
+"Clear all dialer proxies set for this profile?" = "清除当前配置的全部前置代理设置？";
 "Clear the DNS cache?" = "清除 DNS 缓存？";
 "Clear the Fake-IP cache?" = "清除 Fake-IP 缓存？";
 "Clear these caches only after DNS changes or when a stale answer persists. The tunnel stays connected." = "只在改过 DNS、或一直拿到过时结果时再清除。连接不受影响";
@@ -934,6 +938,7 @@
 "Core, data, connection, and app settings" = "数据、连接与 App 设置";
 "Could Not Save" = "无法保存";
 "Could not prepare the log for sharing." = "无法准备要共享的日志。";
+"Could not save the dialer proxy" = "前置代理没有保存";
 "Could not update %@: %@" = "无法更新 %@：%@";
 "Could not write the log to that location." = "无法把日志写到该位置。";
 "Couldn't check the nodes" = "无法检查节点是否可用";
@@ -2062,6 +2067,7 @@
 "No DNS" = "无 DNS";
 "No Desktop or Inbound Fields" = "没有桌面或入站字段";
 "No Details" = "没有详情";
+"No Dialer Proxy" = "不使用";
 "No Entry" = "不经过任何节点";
 "No External Resources" = "没有外部资源";
 "No Favorite Cards" = "尚未添加常用卡片";
@@ -2102,6 +2108,7 @@
 "No configuration files were provided." = "未提供配置文件。";
 "No custom nodes yet." = "还没有自建节点。";
 "No diagnostic report is available." = "没有可用的诊断报告。";
+"No dialer proxies in this profile" = "当前配置没有前置代理";
 "No direct traffic rules" = "没有直连流量规则";
 "No entries" = "无条目";
 "No expiry" = "无到期时间";
@@ -2946,6 +2953,7 @@
 "Session details, network tests, and local reports" = "连接详情、网络测试与本地报告";
 "Set Clash Routing Mode" = "设置 Clash 出站模式";
 "Set Clash VPN" = "设置 Clash VPN";
+"Set Dialer Proxy" = "设置前置代理";
 "Set Routing Mode" = "设置出站模式";
 "Set Up" = "设置";
 "Set a proxy account or allowed devices to limit who can use it." = "设置代理账号或允许的来源 IP，就能限制谁可以使用。";
@@ -3299,6 +3307,7 @@
 "The client downloaded remote provider data into the immutable profile revision before Core started." = "客户端在内核启动前，把远程集合数据下载进了不可变的配置版本。";
 "The client runtime compiler is unavailable." = "暂时无法准备配置，请再试一次";
 "The collection file is missing. Import its companion file again from the source." = "缺少集合文件，请在来源中重新导入配套文件。";
+"The configuration can't be read right now." = "暂时读不到这份配置。";
 "The configuration cannot take this change." = "这份配置接受不了这次修改。";
 "The configuration changed meanwhile; %@ was not updated." = "配置在此期间有变动，%@ 未更新。";
 "The configuration changed. Reopen it and try again." = "配置已经变了，请重新打开再试。";
@@ -3662,6 +3671,7 @@
 "This module's text can no longer be read, so the last one is still in use." = "这个模块保存的内容已读不了，仍在用上一次的。";
 "This name could not be resolved just now." = "刚才无法解析该域名。";
 "This node already uses a dialer proxy. Choose a node without an existing chain." = "这个节点已在用前置代理，请选一个没有链的节点。";
+"This node comes from a proxy provider and cannot take its own dialer proxy" = "该节点来自代理集合，无法单独设置前置代理";
 "This node connects out through the group or proxy you pick here. None connects directly." = "此节点经由你在这里选择的组或代理出站;None 表示直接连接。";
 "This node is not in the configuration or in any of its providers." = "该节点不在配置里，也不在任何代理集合里。";
 "This node no longer exists." = "此节点已不存在。";
@@ -4079,6 +4089,7 @@
 "config deviations unavailable: " = "无法获取配置偏离清单：";
 "decided by the platform" = "由平台决定";
 "deviations: not UTF-8" = "偏离清单：不是 UTF-8";
+"dialer proxy gone, skipped" = "前置代理已不存在，已跳过";
 "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node." = "dialer-proxy：该节点经由所选分组或代理连接，随节点一起保存。";
 "dialer-proxy: this node connects through the chosen group or proxy. Saved with the node; the imported source stays unchanged." = "dialer-proxy：该节点经由所选分组或代理连接，随节点一起保存；导入的源码保持不变。";
 "dns explain not understood: " = "DNS 走向响应无法解析：";
@@ -4093,6 +4104,7 @@
 "file · managed local copy" = "file · 托管的本地副本";
 "first-draw %{public}@ %{public}.1fms-after-push" = "first-draw %{public}@ %{public}.1fms-after-push";
 "from override" = "来自覆写";
+"from profile" = "来自配置文件";
 "gRPC Connections" = "gRPC Connections";
 "gRPC Ping" = "gRPC Ping";
 "gRPC Service" = "gRPC Service";
@@ -4134,6 +4146,7 @@
 "no reason given" = "未说明原因";
 "no reason was given" = "内核未给出原因";
 "node %@" = "节点 %@";
+"node gone, skipped" = "节点已不存在，已跳过";
 "not available here" = "在此平台不可用";
 "not installed" = "未安装";
 "not present" = "没有这一项";
@@ -4211,11 +4224,13 @@
 "udp / tcp / tls / https / quic address" = "udp / tcp / tls / https / quic address";
 "unexpected response" = "意外的响应";
 "until %@" = "%@ 到期";
+"via %@" = "经 %@";
 "vpn authorization save began" = "VPN 授权保存开始";
 "vpn authorization save confirmed" = "VPN 授权保存已确认";
 "vpn authorization still waiting" = "仍在等待 VPN 授权";
 "vpn start cancelled before request" = "VPN 启动在请求前取消";
 "vpn start cancelled during preparation" = "VPN 启动在准备期间取消";
+"would loop, skipped" = "会形成循环，已跳过";
 "· No nodes" = "· 无节点";
 "· Not supported" = "· 不支持";
 "“%@” Is Up to Date" = "「%@」已是最新";

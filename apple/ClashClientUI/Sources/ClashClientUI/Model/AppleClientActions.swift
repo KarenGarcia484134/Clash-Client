@@ -85,6 +85,9 @@ public enum ClashProxiesCommand: Codable, Equatable, Sendable {
      
     case editMember(name: String)
      
+     
+    case setDialerProxy(name: String)
+     
     case inspectMember(name: String)
      
      

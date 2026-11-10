@@ -1809,16 +1809,29 @@ public struct ClashProxiesView<Icon: View>: View, Equatable {
          
          
          
-        if snapshot.proxies.canEdit(member) {
+        if snapshot.proxies.canEdit(member) || snapshot.proxies.canSetDialerProxy(member) {
             plainMemberCard(member, in: group)
                 .contextMenu {
-                    Button {
-                        send(.editMember(name: member.name))
-                    } label: {
-                        Label {
-                            Text(ClashCopy.key("Edit Node"))
-                        } icon: {
-                            Image(systemName: ClashSymbol.pencil.rawValue)
+                    if snapshot.proxies.canEdit(member) {
+                        Button {
+                            send(.editMember(name: member.name))
+                        } label: {
+                            Label {
+                                Text(ClashCopy.key("Edit Node"))
+                            } icon: {
+                                Image(systemName: ClashSymbol.pencil.rawValue)
+                            }
+                        }
+                    }
+                    if snapshot.proxies.canSetDialerProxy(member) {
+                        Button {
+                            send(.setDialerProxy(name: member.name))
+                        } label: {
+                            Label {
+                                Text(ClashCopy.key("Set Dialer Proxy"))
+                            } icon: {
+                                Image(systemName: ClashSymbol.link.rawValue)
+                            }
                         }
                     }
                 }

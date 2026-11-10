@@ -361,7 +361,10 @@ struct ClashProxiesSystemList<Icon: View>: View {
                  
                 showsLatency: !snapshot.proxies.isEmptyGroup(member),
                 nodeScripts: snapshot.proxies.scriptsForNodes,
-                runScript: { send(.runNodeScript(id: $0.id, node: member.name)) }
+                runScript: { send(.runNodeScript(id: $0.id, node: member.name)) },
+                setDialerProxy: snapshot.proxies.canSetDialerProxy(member)
+                    ? { send(.setDialerProxy(name: member.name)) }
+                    : nil
             )
             .equatable()
         }
@@ -419,7 +422,12 @@ struct ClashProxiesSystemList<Icon: View>: View {
                             ? { send(.inspectMember(name: node.name)) }
                             : nil,
                         nodeScripts: snapshot.proxies.scriptsForNodes,
-                        runScript: { send(.runNodeScript(id: $0.id, node: node.name)) }
+                        runScript: { send(.runNodeScript(id: $0.id, node: node.name)) },
+                        setDialerProxy: snapshot.proxies.canSetDialerProxy(
+                            ClashProxyMemberSnapshot(name: node.name, type: node.type)
+                        )
+                            ? { send(.setDialerProxy(name: node.name)) }
+                            : nil
                     )
                     .equatable()
                 }
@@ -640,6 +648,7 @@ struct ClashProxyMemberListRow: View, Equatable {
              
              
             && (a.editNode == nil) == (b.editNode == nil)
+            && (a.setDialerProxy == nil) == (b.setDialerProxy == nil)
              
             && a.nodeScripts == b.nodeScripts
     }
@@ -678,6 +687,8 @@ struct ClashProxyMemberListRow: View, Equatable {
      
     var nodeScripts: [ClashProxyNodeScript] = []
     var runScript: ((ClashProxyNodeScript) -> Void)? = nil
+     
+    var setDialerProxy: (() -> Void)? = nil
 
      
     var offersScripts: Bool { !nodeScripts.isEmpty && runScript != nil }
@@ -766,6 +777,16 @@ struct ClashProxyMemberListRow: View, Equatable {
                             Image(systemName: ClashSymbol.pencil.rawValue)
                         }
                     }
+                }
+                if let setDialerProxy {
+                    Button { setDialerProxy() } label: {
+                        Label {
+                            Text(ClashCopy.key("Set Dialer Proxy"))
+                        } icon: {
+                            Image(systemName: ClashSymbol.link.rawValue)
+                        }
+                    }
+                    .accessibilityIdentifier("proxies.member.dialer-proxy")
                 }
                 if offersScripts, let runScript {
                      

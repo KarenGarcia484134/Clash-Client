@@ -38,6 +38,8 @@ struct ProxiesOverviewHost: View {
      
     @State private var inspectingNode: ProxyNodeInspection?
      
+    @State private var dialerProxyRequest: DialerProxyRequest?
+     
      
      
      
@@ -64,6 +66,11 @@ struct ProxiesOverviewHost: View {
                 }
                 .clashProductModal(item: $scriptRun, role: .form) { run in
                     scriptResultSheet(run)
+                }
+                .clashProductModal(item: $dialerProxyRequest, role: .form) { request in
+                    DialerProxyPickerSheet(profiles: profiles, profile: profile, node: request.node) {
+                        dialerProxyRequest = nil
+                    }
                 }
                  
                  
@@ -284,6 +291,7 @@ struct ProxiesOverviewHost: View {
             inspectMember: { name in inspectingNode = ProxyNodeInspection(name: name) },
             nodeScripts: offeredNodeScripts,
             runNodeScript: nodeScriptRunner,
+            setDialerProxy: { name in dialerProxyRequest = DialerProxyRequest(node: name) },
             initiallyExpandedGroup: initiallyExpandedGroup,
             rememberedExpandedGroups: nodes.unfoldedGroups,
              

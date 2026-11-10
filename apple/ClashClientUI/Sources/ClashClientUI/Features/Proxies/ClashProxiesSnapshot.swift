@@ -683,6 +683,19 @@ public struct ClashProxiesSnapshot: Codable, Equatable, Sendable {
     public var scriptsForNodes: [ClashProxyNodeScript] { nodeScripts ?? [] }
 
      
+     
+    public var offersDialerProxy: Bool? = nil
+
+    public static let dialerProxyBuiltins: Set<String> = [
+        "DIRECT", "REJECT", "REJECT-DROP", "PASS", "PASS-RULE", "COMPATIBLE", "GLOBAL",
+    ]
+
+     
+    public func canSetDialerProxy(_ member: ClashProxyMemberSnapshot) -> Bool {
+        offersDialerProxy == true && !member.isGroup && !Self.dialerProxyBuiltins.contains(member.name)
+    }
+
+     
     public func canEdit(_ member: ClashProxyMemberSnapshot) -> Bool {
         !member.isGroup && editableMembers.contains(member.name)
     }
@@ -720,9 +733,11 @@ public struct ClashProxiesSnapshot: Codable, Equatable, Sendable {
         editableMembers: Set<String> = [],
         rememberedOpenGroup: String? = nil,
         readerFoldedAll: Bool? = nil,
-        nodeScripts: [ClashProxyNodeScript] = []
+        nodeScripts: [ClashProxyNodeScript] = [],
+        offersDialerProxy: Bool? = nil
     ) {
         self.nodeScripts = nodeScripts.isEmpty ? nil : nodeScripts
+        self.offersDialerProxy = offersDialerProxy
         self.groups = groups
         self.hiddenGroups = hiddenGroups
         self.searchableProxies = searchableProxies

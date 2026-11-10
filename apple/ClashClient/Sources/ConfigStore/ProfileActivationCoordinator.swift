@@ -703,6 +703,14 @@ enum ProfileRuntimeConfigBuilder {
                 try chain.apply(to: &document.root)
                 touched = true
             }
+             
+             
+             
+             
+            if let dialers = profile.dialerProxies, !dialers.isEmpty,
+               !ProfileDialerProxies.inject(into: &document.root, dialers).applied.isEmpty {
+                touched = true
+            }
         }
         if applyLegacyRelayMigration {
             touched = try LegacyRelayMigrationEngine.apply(

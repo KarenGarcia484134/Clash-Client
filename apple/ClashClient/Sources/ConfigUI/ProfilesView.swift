@@ -4629,6 +4629,7 @@ final class ProfilesViewModel: ObservableObject {
              
             copy.postMergeScriptID = profile.postMergeScriptID
             copy.proxyNodeOverrides = profile.proxyNodeOverrides
+            copy.dialerProxies = profile.dialerProxies
              
              
             copy.providerDefinitions = profile.providerDefinitions
@@ -7874,6 +7875,10 @@ final class ProfilesViewModel: ObservableObject {
         if let chain = profile.proxyChain,
            let encoded = try? JSONEncoder.sortedKeys.encode(chain) {
             parts.append("c:\(encoded.count)|\(encoded.hashValue)")
+        }
+        if let dialers = profile.dialerProxies,
+           let encoded = try? JSONEncoder.sortedKeys.encode(dialers) {
+            parts.append("d:\(encoded.count)|\(encoded.hashValue)")
         }
         return parts.joined(separator: "\u{1}")
     }

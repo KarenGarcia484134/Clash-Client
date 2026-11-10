@@ -1,3 +1,4 @@
+import ClashClientKit
 import Foundation
 
 struct SubscriptionInfo: Codable, Equatable {
@@ -1514,6 +1515,10 @@ struct Profile: Codable, Identifiable, Equatable {
      
      
     var proxyChain: ProxyChainSpec? = nil
+     
+     
+     
+    var dialerProxies: [ProfileDialerProxy]? = nil
      
      
     var proxyNodeOverrides: ProxyNodeOverrideSpec? = nil

@@ -140,8 +140,39 @@ final class ICloudAutoBackup: ObservableObject {
             && strings("com.apple.developer.icloud-container-identifiers")
                 .contains(ClashAppIdentifiers.iCloudContainer)
         #else
-        return true
+        return Self.provisioningAllowsCloudKit(
+            Bundle.main.url(forResource: "embedded", withExtension: "mobileprovision")
+                .flatMap { try? Data(contentsOf: $0) }
+        )
         #endif
+    }
+
+    /// iOS cannot read its own entitlements, but a sideloaded or developer
+    /// build carries an `embedded.mobileprovision` whose `Entitlements` are a
+    /// superset of what the binary was signed with. When the profile grants no
+    /// CloudKit (e.g. a free Apple ID re-sign), `CKContainer(identifier:)`
+    /// traps, so the backup must fall back to the unentitled sink. No profile
+    /// (App Store, TrollStore) keeps the previous behaviour.
+    static func provisioningAllowsCloudKit(_ profile: Data?) -> Bool {
+        guard let profile else { return true }
+        guard let start = profile.range(of: Data("<?xml".utf8)),
+              let end = profile.range(of: Data("</plist>".utf8), in: start.lowerBound..<profile.endIndex),
+              let plist = try? PropertyListSerialization.propertyList(
+                  from: profile.subdata(in: start.lowerBound..<end.upperBound), format: nil
+              ) as? [String: Any],
+              let entitlements = plist["Entitlements"] as? [String: Any]
+        else { return false }
+        func strings(_ key: String) -> [String] {
+            if let list = entitlements[key] as? [String] { return list }
+            if let one = entitlements[key] as? String { return [one] }
+            return []
+        }
+        let wanted = ClashAppIdentifiers.iCloudContainer
+        let containerAllowed = strings("com.apple.developer.icloud-container-identifiers").contains { id in
+            id == wanted || (id.hasSuffix("*") && wanted.hasPrefix(String(id.dropLast())))
+        }
+        return strings("com.apple.developer.icloud-services").contains { $0 == "CloudKit" || $0 == "*" }
+            && containerAllowed
     }
 
      
